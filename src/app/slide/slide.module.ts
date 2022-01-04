@@ -4,6 +4,8 @@ import { SlideComponent } from './slide.component';
 import { HelloComponent } from './hello/hello.component';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { RouterModule } from '@angular/router';
+import { SharemoduleModule } from '../sharemodule/sharemodule.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,7 @@ import { RouterModule } from '@angular/router';
     ImageSliderComponent
   ],
   imports: [
-    CommonModule,
+    SharemoduleModule,
     RouterModule.forChild([
       { path: '', component: SlideComponent }
     ]),
