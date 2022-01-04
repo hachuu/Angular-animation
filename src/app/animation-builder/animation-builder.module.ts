@@ -13,7 +13,8 @@ import { BrowserModule } from '@angular/platform-browser';
     AnimationBuilderComponent
   ],
   imports: [
-    NoopAnimationsModule,
+    // NoopAnimationsModule,
+    // CommonModule,
     RouterModule.forChild([
       { path: '', component: AnimationBuilderComponent }
     ]),

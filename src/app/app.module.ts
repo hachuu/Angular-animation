@@ -9,9 +9,10 @@ import { AnimationBuilderModule } from './animation-builder/animation-builder.mo
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
-  imports:      [ AppRoutingModule, BrowserModule, BrowserAnimationsModule, FormsModule, SlideModule, AnimationBuilderModule ],
+  imports:      [ AppRoutingModule, CommonModule, BrowserAnimationsModule, FormsModule, SlideModule, AnimationBuilderModule ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
