@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { trigger, transition, query, style, animate, group, AnimationBuilder, AnimationPlayer } from '@angular/animations';
+declare var $:any;
 const left = [
   query(':enter, :leave', style({ position: 'fixed', width: '100%' }), { optional: true }),
   group([
@@ -63,6 +64,11 @@ export class ImageSliderComponent implements OnInit {
 
 
   isDrag = 'init';
+
+  distX!: number;
+  distY!: number;
+  posX!: number;
+  posY!: number;
 
   constructor(private animationBuilder: AnimationBuilder) { }
   
@@ -257,5 +263,27 @@ export class ImageSliderComponent implements OnInit {
     }
 
     this.player = animationFactory.create(this.elementRef.nativeElement);
+  }
+
+  mouseDown(event: DragEvent | any) {
+    this.posX = event.pageX;
+    this.posY = event.pageY;
+    this.distX = event.srcElement.offsetLeft - this.posX;
+    this.distY = event.srcElement.offsetTop - this.posY;
+  }
+
+  mouseUp(event: MouseEvent) {
+    event.stopPropagation();
+    event.preventDefault();
+    this.posX = event.pageX;
+    this.posY = event.pageY;
+    
+    $('#mydiv').css('margin-left', this.posX + this.distX + 'px')
+        // .css('margin-top', this.posY + this.distY + 'px');
+  }
+
+  mouseOver(e: DragEvent) {
+    e.stopPropagation();
+    e.preventDefault();
   }
 }

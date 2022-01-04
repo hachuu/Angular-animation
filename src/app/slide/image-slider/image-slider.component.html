@@ -5,7 +5,7 @@
 	 <div class="text" *ngIf="i===counter%images.length || i === (images.length - (counter%images.length *-1))" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')"
 	 (dragstart)="onDragStart($event)" (dragend)="onDragEnd($event)" >
 	 <div class="textClass" >
-		<img [src]="text" style="height:200px; width:200px" 
+		<img [src]="text" style="height:500px; width:500px" 
 		[ngStyle]="{'opacity': isDrag === 'start' ? '0' : '1'}"
 		*ngIf="i===counter%images.length || i === (images.length - (counter%images.length *-1))"/>
 		 <p>
@@ -22,7 +22,23 @@
 	 #withBuilder
 	 >
 	 <div class="textClass" >
-		<img [src]="text" style="height:200px; width:200px" *ngIf="i===counter%images.length || i === (images.length - (counter%images.length *-1))"/>
+		<img [src]="text" style="height:500px; width:500px" *ngIf="i===counter%images.length || i === (images.length - (counter%images.length *-1))"/>
+		 <p>
+			 {{textList[i]}}
+		 </p>
+		</div></div>
+	</ng-container>
+</div>
+
+<div>
+	<ng-container *ngFor="let text of images; let i=index">
+	 <div class="text" *ngIf="i===counter%images.length || i === (images.length - (counter%images.length *-1))" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')"
+	 (dragstart)="mouseDown($event)" (dragend)="mouseUp($event)"
+	 (dragover)="mouseOver($event)"
+	 >
+	 <!-- (mousedown)="mouseDown($event)" (mouseup)="mouseUp($event)" -->
+	 <div class="textClass"  id="mydiv">
+		<img [src]="text" style="height:500px; width:500px" *ngIf="i===counter%images.length || i === (images.length - (counter%images.length *-1))"/>
 		 <p>
 			 {{textList[i]}}
 		 </p>

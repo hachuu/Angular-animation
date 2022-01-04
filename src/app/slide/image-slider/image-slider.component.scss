@@ -18,7 +18,10 @@
   background-color: beige;
   display: inline-block;
   ::selection {
-    width: 300px;
+    img {
+      width: 300px;
+    }
+    
     opacity: 1;
   }
 }

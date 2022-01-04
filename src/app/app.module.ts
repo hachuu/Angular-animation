@@ -7,6 +7,7 @@ import { SlideModule } from './slide/slide.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TabSlideModule } from './tab-slide/tab-slide.module';
 
 @NgModule({
   imports:      [ 
@@ -14,7 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule, 
     BrowserAnimationsModule, 
     AnimationBuilderToggleModule,
-    SlideModule
+    SlideModule,
+    TabSlideModule
   ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ],

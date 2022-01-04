@@ -5,6 +5,7 @@ import { AnimationBuilderRoute } from './animation-builder/animation-builder.rou
 const routes: Routes = [
   ...AnimationBuilderRoute,
   { path: 'slide', loadChildren: () => import('./slide/slide.module').then(m => m.SlideModule) },
+  { path: 'tab-slide', loadChildren: () => import('./tab-slide/tab-slide.module').then(m => m.TabSlideModule) },
   { path: '', redirectTo: '/animation', pathMatch: 'full' },
 ];
 
