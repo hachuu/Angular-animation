@@ -81,7 +81,6 @@ export class ImageSliderComponent implements OnInit {
   }
 
   swipe(e: TouchEvent, when: string): void {
-    console.log('swipe')
 		const coord: [number, number] = [e.changedTouches[0].clientX, e.changedTouches[0].clientY];
 		const time = new Date().getTime();
 	
@@ -108,14 +107,10 @@ export class ImageSliderComponent implements OnInit {
 	}
 
   onDragStart(e:any ){
-    console.log(e);
-    // console.log('drag start')
     this.drag(e, 'start');
   }
 
   onDragEnd(e:any ){
-    // console.log('drag end')
-    console.log(e)
     this.drag(e, 'end');
   }
 
@@ -123,8 +118,6 @@ export class ImageSliderComponent implements OnInit {
     const coord: [number, number] = [e.clientX, e.clientY];
 		const time = new Date().getTime();
 
-    // console.log(coord);
-	
 		if (when === 'start') {
 			this.swipeCoord = coord;
 			this.swipeTime = time;
@@ -132,8 +125,6 @@ export class ImageSliderComponent implements OnInit {
 			const direction = [coord[0] - this.swipeCoord[0], coord[1] - this.swipeCoord[1]];
 			const duration = time - this.swipeTime;
 
-      console.log(direction);
-	
 			if (duration < 1000 //
 				&& Math.abs(direction[0]) > 30
 				&& Math.abs(direction[0]) > Math.abs(direction[1] * 3)) {
