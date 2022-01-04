@@ -2,10 +2,10 @@
 <button type="button" (click)="onNext()" [disabled]="this.counter == this.textList.length - 1">Next</button>
 <div [@animImageSlider]="counter">
 	<ng-container *ngFor="let text of images; let i=index">
-	 <div class="text" *ngIf="i===counter" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')"
+	 <div class="text" *ngIf="i===counter%images.length || i === (images.length - (counter%images.length *-1))" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')"
 	 (dragstart)="onDragStart($event)" (dragend)="onDragEnd($event)" >
 	 <div class="textClass" >
-		<img [src]="text" style="height:200px; width:200px" *ngIf="i===counter"/>
+		<img [src]="text" style="height:200px; width:200px" *ngIf="i===counter%images.length || i === (images.length - (counter%images.length *-1))"/>
 		 <span>
 			 {{textList[i]}}
 		 </span>

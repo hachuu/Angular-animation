@@ -63,19 +63,21 @@ export class ImageSliderComponent implements OnInit {
   }
 
   onNext() {
-    if (this.counter != this.textList.length - 1) {
-      this.counter++;
-    } else {
-      this.counter = 0;
-    }
+    // if (this.counter != this.textList.length - 1) {
+    //   this.counter++;
+    // } else {
+    //   this.counter = 0;
+    // }
+    this.counter++;
   }
 
   onPrevious() {
-    if (this.counter > 0) {
-      this.counter--;
-    } else {
-      this.counter = this.textList.length - 1;
-    }
+    // if (this.counter > 0) {
+    //   this.counter--;
+    // } else {
+    //   this.counter = this.textList.length - 1;
+    // }
+    this.counter--;
   }
 
   swipe(e: TouchEvent, when: string): void {
