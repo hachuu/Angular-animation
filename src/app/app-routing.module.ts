@@ -3,9 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AnimationBuilderRoute } from './animation-builder/animation-builder.route';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/slide', pathMatch: 'full' },
-  { path: 'slide', loadChildren: () => import( './slide/slide.module').then(m => m.SlideModule)},
-  ...AnimationBuilderRoute
+  ...AnimationBuilderRoute,
+  { path: 'slide', loadChildren: () => import('./slide/slide.module').then(m => m.SlideModule) },
+  { path: '', redirectTo: '/animation', pathMatch: 'full' },
 ];
 
 @NgModule({

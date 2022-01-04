@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment';
   ],
   exports: [
     CommonModule,
+    FormsModule,
  ]
 })
 export class SharemoduleModule { }
