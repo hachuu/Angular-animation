@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AnimationBuilderToggleModule } from './animation-builder/animation-builder.module';
 import { AppRoutingModule } from './app-routing.module';
+import { SlideModule } from './slide/slide.module';
 
 @NgModule({
   imports:      [ 
@@ -13,7 +14,8 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule, 
     BrowserAnimationsModule, 
     FormsModule,
-    AnimationBuilderToggleModule
+    AnimationBuilderToggleModule,
+    SlideModule
   ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ]
