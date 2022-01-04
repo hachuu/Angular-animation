@@ -6,6 +6,7 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { CommonModule } from '@angular/common';
 import { AnimationBuilder } from '@angular/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -13,14 +14,14 @@ import { BrowserModule } from '@angular/platform-browser';
     AnimationBuilderComponent
   ],
   imports: [
-    // NoopAnimationsModule,
-    // CommonModule,
+    // BrowserModule,
+    // environment.production ? BrowserAnimationsModule : NoopAnimationsModule,
     RouterModule.forChild([
       { path: '', component: AnimationBuilderComponent }
     ]),
   ],
   exports: [
-    RouterModule
+    AnimationBuilderComponent
   ]
 })
 export class AnimationBuilderModule { }

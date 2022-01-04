@@ -5,20 +5,6 @@ import { trigger, state, style, transition, animate, AnimationBuilder, Animation
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: [ './app.component.scss' ],
-  animations: [
-    trigger('collapse', [
-      state('open', style({ width: '*' })),
-      state('close', style({ width: 0 })),
-      transition('open => close', [
-        style({ width: '*' }),
-        animate(200, style({ width: 0 }))
-      ]),
-      transition('close => open', [
-        style({ width: 0 }),
-        animate(200, style({ width: '*' }))
-      ])
-    ])
-  ]
 })
 export class AppComponent implements AfterViewInit  {
   isOpen = true;

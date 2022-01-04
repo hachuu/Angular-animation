@@ -1,10 +1,24 @@
-import { AnimationPlayer, AnimationBuilder, style, animate } from '@angular/animations';
+import { AnimationPlayer, AnimationBuilder, style, animate, state, transition, trigger } from '@angular/animations';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-animation-builder',
   templateUrl: './animation-builder.component.html',
-  styleUrls: ['./animation-builder.component.scss']
+  styleUrls: ['./animation-builder.component.scss'],
+  animations: [
+    trigger('collapse', [
+      state('open', style({ width: '*' })),
+      state('close', style({ width: 0 })),
+      transition('open => close', [
+        style({ width: '*' }),
+        animate(200, style({ width: 0 }))
+      ]),
+      transition('close => open', [
+        style({ width: 0 }),
+        animate(200, style({ width: '*' }))
+      ])
+    ])
+  ]
 })
 export class AnimationBuilderComponent implements OnInit {
 
