@@ -14,7 +14,7 @@
 		</div></div>
 	</ng-container>
 </div>
-
+<!-- 
 <div>
 	<ng-container *ngFor="let text of images; let i=index">
 	 <div class="text" *ngIf="i===counter%images.length || i === (images.length - (counter%images.length *-1))" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')"
@@ -36,7 +36,6 @@
 	 (dragstart)="mouseDown($event)" (dragend)="mouseUp($event)"
 	 (dragover)="mouseOver($event)"
 	 >
-	 <!-- (mousedown)="mouseDown($event)" (mouseup)="mouseUp($event)" -->
 	 <div class="textClass"  id="mydiv">
 		<img [src]="text" style="height:500px; width:500px" *ngIf="i===counter%images.length || i === (images.length - (counter%images.length *-1))"/>
 		 <p>
@@ -44,4 +43,4 @@
 		 </p>
 		</div></div>
 	</ng-container>
-</div>
+</div> -->

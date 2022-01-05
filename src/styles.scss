@@ -5,3 +5,6 @@
 //   -webkit-user-select: none;
 //   user-select: none;
 // }
+
+::-moz-selection {color:#fff; background:#48CFAD;}
+::selection {color:#fff; background:#48CFAD;}
