@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-tab-slide',
@@ -8,11 +8,25 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class TabSlideComponent implements OnInit {
 
 
+  @Input() menuList = [
+    '첫번째', 
+    '두번째',
+    '세번째',
+    '네번째',
+    '다섯번째',
+    '여섯번째',
+    '일곱번째',
+    '여덟번째',
+    '아홉번째',
+    '열번째',
+    '열한번째',
+  ];
   @ViewChild('contents')
   elementRef!: ElementRef;
   bMove = false;
   startX = 0;
   scrollLeft: number = 0;
+  activeIndex: number = 0;
   constructor() { }
 
   ngOnInit(): void {
@@ -41,6 +55,10 @@ export class TabSlideComponent implements OnInit {
         const walk = x - this.startX;
         this.elementRef.nativeElement.scrollLeft = this.scrollLeft - walk;
       }
+  }
+
+  activateMenu(i: number) {
+    this.activeIndex = i;
   }
 
 }
