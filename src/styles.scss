@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+// :root {
+//   -ms-user-select: none; 
+//   -moz-user-select: -moz-none;
+//   -khtml-user-select: none;
+//   -webkit-user-select: none;
+//   user-select: none;
+// }
+
+::-moz-selection {color:#fff; background:#48CFAD;}
+::selection {color:#fff; background:#48CFAD;}

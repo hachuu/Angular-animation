@@ -1,0 +1,18 @@
+<div class="contents" (mousedown)="mousedown($event)" 
+(mouseup)="mouseup($event)" (mousemove)="mousemove($event)"
+(mouseout)="mouseleave($event)"
+
+
+(touchstart)="mousedown($event)" 
+(touchend)="mouseup($event)" (touchmove)="mousemove($event)"
+(touchleave)="mouseleave($event)"
+
+
+#contents>
+	<div class="category_menu">
+		<ul>
+			<li *ngFor="let menu of menuList; let i = index;"><a href="javascript:void(0)" draggable="false" [ngClass]="{'on': i === activeIndex}" (click)="activateMenu(i)">{{menu}}</a></li>
+		</ul>
+		<!-- <span class="line" style="left: 22px; width: 98px; opacity: 1;"></span> -->
+	</div>
+</div>
