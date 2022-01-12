@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { trigger, state, style, transition, animate, AnimationBuilder, AnimationPlayer } from '@angular/animations';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,9 +16,13 @@ export class AppComponent implements AfterViewInit  {
   elementRef!: ElementRef;
   private player!: AnimationPlayer;
 
-  constructor(private animationBuilder: AnimationBuilder) { }
 
-  ngAfterViewInit() { }
+  constructor(private animationBuilder: AnimationBuilder) {
+    
+  }
+
+  ngAfterViewInit() {
+   }
 
   createPlayer() {
     if(this.player) {
