@@ -4,10 +4,12 @@ import { AppComponent } from './app.component';
 import { AnimationBuilderToggleModule } from './animation-builder/animation-builder.module';
 import { AppRoutingModule } from './app-routing.module';
 import { SlideModule } from './slide/slide.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabSlideModule } from './tab-slide/tab-slide.module';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { FormModule } from './form/form.module';
 
 @NgModule({
   imports:      [ 
@@ -16,7 +18,10 @@ import { TabSlideModule } from './tab-slide/tab-slide.module';
     BrowserAnimationsModule, 
     AnimationBuilderToggleModule,
     SlideModule,
-    TabSlideModule
+    TabSlideModule,
+    DragDropModule,
+    ReactiveFormsModule,
+    FormModule
   ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ],
