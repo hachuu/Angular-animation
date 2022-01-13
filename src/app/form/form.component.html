@@ -20,12 +20,22 @@
       class="example-list"
       (cdkDropListDropped)="drop($event)">
       <div class="example-box" *ngFor="let item of done" cdkDrag>
-        {{item}}
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              This is the expansion title
+            </mat-panel-title>
+            <mat-panel-description>
+              {{item || 'This is a summary of the content'}}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <input style="width: 100%;">
+        </mat-expansion-panel>
       </div>
     </div>
   </div>
 
-  <mat-accordion>
+  <!-- <mat-accordion>
     <mat-expansion-panel hideToggle>
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -49,6 +59,8 @@
       </mat-expansion-panel-header>
       <p>I'm visible because I am open</p>
     </mat-expansion-panel>
-  </mat-accordion>
+  </mat-accordion> -->
 
 </div>
+
+
