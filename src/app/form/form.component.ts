@@ -11,10 +11,23 @@ export class FormComponent implements OnInit {
   }
 
   panelOpenState = false;
+  itemText: string = '';
 
-  todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
+  todo = [
+    {title: 'Get to work', isOpen: false, value: ''},
+    {title: 'Pick up groceries', isOpen: false, value: ''},
+    {title: 'Go home', isOpen: false, value: ''},
+    {title: 'Fall asleep', isOpen: false, value: ''},
+  ];
 
-  done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
+  done = 
+  [
+    {title: 'Get up', isOpen: false, value: ''},
+    {title: 'Brush teeth', isOpen: false, value: ''},
+    {title: 'Take a shower', isOpen: false, value: ''},
+    {title: 'Check e-mail', isOpen: false, value: ''},
+    {title: 'Walk dog', isOpen: false, value: ''},
+  ]
 
   drop(event: any) {
     if (event.previousContainer === event.container) {
@@ -29,4 +42,20 @@ export class FormComponent implements OnInit {
     }
   }
 
+  activeOverlay(item: any) {
+    item.isOpen = !item.isOpen;
+    this.done.forEach(doneItem => {
+      if (doneItem !== item) {
+        doneItem.isOpen = false
+      }
+    })
+  }
+
+  confirmValue(item: any) {
+    if (this.itemText) {
+      item.value = this.itemText;
+    }
+    item.isOpen = false;
+    this.itemText = '';
+  }
 }
