@@ -1,0 +1,14 @@
+<div class="chat">
+	채팅내용 : <input value="" type="text" (keyup.enter)="sendMessage()"
+  [(ngModel)]="message"
+  >
+</div>
+
+<!-- <button (click)="getMessage()">가져오자</button> -->
+<ng-container *ngIf="messageList && messageList.length">
+	<ul *ngFor="let msg of messageList">
+		<li>{{msg.message}} / 시간 : {{dateFormat(msg.createdAt)}}</li>
+	</ul>
+</ng-container>
+
+<button (click)="loadMsg()">너와 나의 히스토리</button>

@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabSlideModule } from './tab-slide/tab-slide.module';
+import { MessageComponent } from './message/message.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports:      [ 
@@ -16,9 +18,10 @@ import { TabSlideModule } from './tab-slide/tab-slide.module';
     BrowserAnimationsModule, 
     AnimationBuilderToggleModule,
     SlideModule,
-    TabSlideModule
+    TabSlideModule,
+    FormsModule,
   ],
-  declarations: [ AppComponent ],
+  declarations: [ AppComponent, MessageComponent ],
   bootstrap:    [ AppComponent ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   // exports: [environment.production ? BrowserAnimationsModule : NoopAnimationsModule,]
