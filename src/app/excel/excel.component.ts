@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExcelService } from './excel.service';
+import { mockDataArr } from './mock/mockDataArr';
 
 @Component({
   selector: 'app-excel',
@@ -13,36 +14,14 @@ export class ExcelComponent implements OnInit {
   }
 
   title = 'exportExcelInAngular';
-  dataOfFootballers: any = [{
-    playerName: 'Cristiano Ronaldo',
-    playerCountry: 'Pourtgal',
-    playerClub: 'Juventus'
-  },
-  {
-    playerName: 'Lionel Messi',
-    playerCountry: '',
-    playerClub: 'Barcelona'
-  },
-  {
-    playerName: 'Neymar Junior',
-    playerCountry: '',
-    playerClub: 'PSG'
-  },
-  {
-  playerName: 'Tonni Kroos',
-  playerCountry: '',
-  playerClub: 'Real Madrid'
-  },
-  {
-    playerName: 'Paul Pogba',
-    playerCountry: 'France',
-    playerClub: 'Manchester United'
-  }];
+  mockDataHeader: string[] | undefined;
+  mockDataArr = mockDataArr;
   constructor(private excelService:ExcelService){
-
+    this.mockDataHeader = Object.keys(this.mockDataArr[0]);
   }
-  exportAsXLSX():void {
-    this.excelService.exportAsExcelFile(this.dataOfFootballers, 'footballer_data');
+  exportAsXLSX(): void {
+    
+    this.excelService.exportAsExcelFile(this.mockDataArr, 'user_data', this.mockDataHeader);
   }
 
 }

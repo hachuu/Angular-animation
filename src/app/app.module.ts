@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabSlideModule } from './tab-slide/tab-slide.module';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormModule } from './form/form.module';
+import { ExcelModule } from './excel/excel.module';
 
 @NgModule({
   imports:      [ 
@@ -21,7 +22,8 @@ import { FormModule } from './form/form.module';
     TabSlideModule,
     DragDropModule,
     ReactiveFormsModule,
-    FormModule
+    FormModule,
+    ExcelModule,
   ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ],
