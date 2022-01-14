@@ -24,7 +24,7 @@ export class ExcelComponent implements OnInit {
       "list": 3,
       "country": "India",
       "region": "Đắk Nông",
-      "postalZip": "356854",
+      "postalZip": "32157",
       "text": "eu, placerat eget, venenatis a, magna. Lorem ipsum dolor sit",
       "currency": "$90.71",
       "alphanumeric": "MPR08GOH8HH"
@@ -38,7 +38,7 @@ export class ExcelComponent implements OnInit {
       "list": 17,
       "country": "New Zealand",
       "region": "Innlandet",
-      "postalZip": "628631",
+      "postalZip": "32157",
       "text": "arcu. Nunc mauris. Morbi non sapien molestie orci tincidunt adipiscing.",
       "currency": "$80.73",
       "alphanumeric": "VUT50KDE5OW"
@@ -52,7 +52,7 @@ export class ExcelComponent implements OnInit {
       "list": 9,
       "country": "United Kingdom",
       "region": "La Libertad",
-      "postalZip": "36430",
+      "postalZip": "32157",
       "text": "Duis sit amet diam eu dolor egestas rhoncus. Proin nisl",
       "currency": "$81.92",
       "alphanumeric": "PVH23FND6CV"
@@ -64,9 +64,9 @@ export class ExcelComponent implements OnInit {
       "email": "at.velit.cras@protonmail.org",
       "address": "Ap #613-7189 Urna, St.",
       "list": 9,
-      "country": "Ireland",
+      "country": "New Zealand",
       "region": "Puntarenas",
-      "postalZip": "8372",
+      "postalZip": "32157",
       "text": "mi felis, adipiscing fringilla, porttitor vulputate, posuere vulputate, lacus. Cras",
       "currency": "$86.26",
       "alphanumeric": "MVA17XVV8BV"
@@ -78,7 +78,7 @@ export class ExcelComponent implements OnInit {
       "email": "at.auctor@google.ca",
       "address": "5814 Vulputate, Ave",
       "list": 9,
-      "country": "Mexico",
+      "country": "New Zealand",
       "region": "Morelos",
       "postalZip": "32157",
       "text": "lorem, sit amet ultricies sem magna nec quam. Curabitur vel",
