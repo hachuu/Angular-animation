@@ -13,36 +13,85 @@ export class ExcelComponent implements OnInit {
   }
 
   title = 'exportExcelInAngular';
-  dataOfFootballers: any = [{
-    playerName: 'Cristiano Ronaldo',
-    playerCountry: 'Pourtgal',
-    playerClub: 'Juventus'
-  },
-  {
-    playerName: 'Lionel Messi',
-    playerCountry: '',
-    playerClub: 'Barcelona'
-  },
-  {
-    playerName: 'Neymar Junior',
-    playerCountry: '',
-    playerClub: 'PSG'
-  },
-  {
-  playerName: 'Tonni Kroos',
-  playerCountry: '',
-  playerClub: 'Real Madrid'
-  },
-  {
-    playerName: 'Paul Pogba',
-    playerCountry: 'France',
-    playerClub: 'Manchester United'
-  }];
+  
+  excelData: any = [
+    {
+      "numberrange": 0,
+      "name": "Ronan Lara",
+      "phone": "1-365-229-3275",
+      "email": "euismod.est.arcu@icloud.net",
+      "address": "988-964 Faucibus Street",
+      "list": 3,
+      "country": "India",
+      "region": "Đắk Nông",
+      "postalZip": "356854",
+      "text": "eu, placerat eget, venenatis a, magna. Lorem ipsum dolor sit",
+      "currency": "$90.71",
+      "alphanumeric": "MPR08GOH8HH"
+    },
+    {
+      "numberrange": 0,
+      "name": "Noah Chambers",
+      "phone": "1-395-882-7194",
+      "email": "dictum.ultricies.ligula@google.com",
+      "address": "1759 Sodales St.",
+      "list": 17,
+      "country": "New Zealand",
+      "region": "Innlandet",
+      "postalZip": "628631",
+      "text": "arcu. Nunc mauris. Morbi non sapien molestie orci tincidunt adipiscing.",
+      "currency": "$80.73",
+      "alphanumeric": "VUT50KDE5OW"
+    },
+    {
+      "numberrange": 8,
+      "name": "Hilda Juarez",
+      "phone": "1-141-432-1365",
+      "email": "maecenas.libero@yahoo.couk",
+      "address": "Ap #402-4411 Vitae, Ave",
+      "list": 9,
+      "country": "United Kingdom",
+      "region": "La Libertad",
+      "postalZip": "36430",
+      "text": "Duis sit amet diam eu dolor egestas rhoncus. Proin nisl",
+      "currency": "$81.92",
+      "alphanumeric": "PVH23FND6CV"
+    },
+    {
+      "numberrange": 3,
+      "name": "Joseph Best",
+      "phone": "(762) 849-5279",
+      "email": "at.velit.cras@protonmail.org",
+      "address": "Ap #613-7189 Urna, St.",
+      "list": 9,
+      "country": "Ireland",
+      "region": "Puntarenas",
+      "postalZip": "8372",
+      "text": "mi felis, adipiscing fringilla, porttitor vulputate, posuere vulputate, lacus. Cras",
+      "currency": "$86.26",
+      "alphanumeric": "MVA17XVV8BV"
+    },
+    {
+      "numberrange": 3,
+      "name": "Sybill Michael",
+      "phone": "(594) 648-4871",
+      "email": "at.auctor@google.ca",
+      "address": "5814 Vulputate, Ave",
+      "list": 9,
+      "country": "Mexico",
+      "region": "Morelos",
+      "postalZip": "32157",
+      "text": "lorem, sit amet ultricies sem magna nec quam. Curabitur vel",
+      "currency": "$9.10",
+      "alphanumeric": "EYW63XIT8EB"
+    }
+  ];
+  header = Object.keys(this.excelData[0]);
   constructor(private excelService:ExcelService){
 
   }
   exportAsXLSX():void {
-    this.excelService.exportAsExcelFile(this.dataOfFootballers, 'footballer_data');
+    this.excelService.exportAsExcelFile(this.excelData, 'excel Data');
   }
 
 }

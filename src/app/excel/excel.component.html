@@ -5,15 +5,22 @@
   
 <table class="table table-striped">
 	<tr>
-		<td><b>Player Name</b></td>
-		<td><b>Player Country</b></td>
-		<td><b>Player Club</b></td>
+		<td *ngFor="let head of header"><b>{{head}}</b></td>
   </tr>
   <tbody>
-	<tr *ngFor="let item of dataOfFootballers">
-		<td>{{item.playerName}}</td>
-		<td>{{item.playerCountry}}</td>
-		<td>{{item.playerClub}}</td>
+	<tr *ngFor="let item of excelData">
+		<td>{{item.numberrange}}</td>
+		<td>{{item.name}}</td>
+		<td>{{item.phone}}</td>
+		<td>{{item.email}}</td>
+		<td>{{item.address}}</td>
+		<td>{{item.list}}</td>
+		<td>{{item.country}}</td>
+		<td>{{item.region}}</td>
+		<td>{{item.postalZip}}</td>
+		<td>{{item.text}}</td>
+		<td>{{item.currency}}</td>
+		<td>{{item.alphanumeric}}</td>
   </tr>
   </tbody>
 </table>
