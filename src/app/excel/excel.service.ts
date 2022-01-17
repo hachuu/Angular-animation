@@ -16,7 +16,7 @@ export class ExcelService {
 
     const myworksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json, { header });
 
-    myworksheet['!merges'] = this.mergeItem(json);
+    myworksheet['!merges'] = this.merges(json);
     const myworkbook: XLSX.WorkBook = { Sheets: { 'data': myworksheet }, SheetNames: ['data'] };
     const excelBuffer: any = XLSX.write(myworkbook, { bookType: 'xlsx', type: 'array' });
 
@@ -36,45 +36,30 @@ export class ExcelService {
     FileSaver.saveAs(data, `${fileName}_exported${new Date()}${EXCEL_EXTENSION}`);
   }
 
-  private mergeItem(json: any[]) {
-
+  private merges (json: any[]) {
 
     const originData = json;
+    const keys: string[] = Object.keys(originData[0]);
 
-    //if there is same value in the same column, merge them
-    let mergeItem: any[] = [];
-    const mergeItemIndex = [];
-    const mergeItemValue: any[] = [];
-    const mergeItemValueIndex: number[] = [];
-    const mergeItemValueCellIndex: number[] = [];
+    const start: {c: number, r: number} = {c: 0, r: 0};
+    const end: {c: number, r: number} = {c: 0, r: 0};
+    let keyMerged: any[] = [];
+    keys.forEach((key, c) => {
+      const merged: Array<{s: typeof start, e: typeof end}> = [];
+      originData.forEach((item, r) => {
 
-    const start: {
-      c: number,
-      r: number
-    } = { c: 0, r: 0 };
-    const end: {
-      c: number,
-      r: number
-    } = { c: 0, r: 0 };
-
-    originData.forEach((item, i) => {
-      const itemKeys = Object.keys(item);
-      itemKeys.map((key, j) => {
-        if (i !== 0 && item.hasOwnProperty(key) && item[key] === originData[i-1][key]) {
-          mergeItemValueIndex.push(i);
-          mergeItemValueCellIndex.push(j);
-          console.log(`${i}, ${j}, : ${key}`);
-          start.r = i;
-          start.c = j;
-          end.r = i+1;
-          end.c = j;
-          mergeItem.push({s: {c: start.c, r: start.r}, e: {c: end.c, r: end.r}});
+        if (r !== 0 && item[key] === originData[r - 1][key]) {
+          if (merged.length && merged[merged.length-1].e.r === r) {
+            merged[merged.length-1].e.c = c;
+            merged[merged.length-1].e.r = r+1;
+          } else {
+            merged.push({s: {r : r, c: c}, e: {r: r+1, c: c}});
+          }
         }
-      })
+      });
+      keyMerged = [...keyMerged, ...merged];
     });
-
-    console.log('mergeItem', mergeItem);
-    return mergeItem;
+    return keyMerged;
   }
 
 }
