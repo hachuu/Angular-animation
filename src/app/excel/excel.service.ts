@@ -12,18 +12,13 @@ export class ExcelService {
 
   constructor() { }
 
-  public exportAsExcelFile(json: any[], excelFileName: string): void {
+  public exportAsExcelFile(json: any[], excelFileName: string, header?: string[]): void {
 
-    const header = Object.keys(json[0]);
-    
-    const myworksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json, {header});
+    const myworksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json, { header });
 
     myworksheet['!merges'] = this.merges(json);
-
-    
     const myworkbook: XLSX.WorkBook = { Sheets: { 'data': myworksheet }, SheetNames: ['data'] };
     const excelBuffer: any = XLSX.write(myworkbook, { bookType: 'xlsx', type: 'array' });
-
 
     console.group();
     console.log('myworksheet', myworksheet);
@@ -38,7 +33,7 @@ export class ExcelService {
     const data: Blob = new Blob([buffer], {
       type: EXCEL_TYPE
     });
-    FileSaver.saveAs(data, fileName + '_exported'+ EXCEL_EXTENSION);
+    FileSaver.saveAs(data, `${fileName}_exported${new Date()}${EXCEL_EXTENSION}`);
   }
 
   private merges (json: any[]) {
@@ -63,9 +58,7 @@ export class ExcelService {
         }
       });
       keyMerged = [...keyMerged, ...merged];
-      console.log(keyMerged)
     });
     return keyMerged;
   }
-
 }

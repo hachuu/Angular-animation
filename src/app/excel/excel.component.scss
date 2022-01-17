@@ -1,0 +1,28 @@
+.excel {
+
+  margin: 10px;
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 2px;
+    tr {
+      display: table-row;
+      vertical-align: inherit;
+      border-color: inherit;
+    }
+  }
+  .table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+    td, th {
+      padding: 0.75rem;
+      vertical-align: top;
+      border-top: 1px solid #dee2e6;
+    }
+    th {
+      text-align: inherit;
+    }
+  }
+}

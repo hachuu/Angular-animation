@@ -1,26 +1,30 @@
-<b>Exporting footballer data in excel by clicking below button</b><br>
+<div class="excel">
+	<h1>table 구조 excel 변환 로직 구현</h1>
 
-<button (click)="exportAsXLSX()">
-  excel 변환</button>
-  
-<table class="table table-striped">
-	<tr>
-		<td *ngFor="let head of header"><b>{{head}}</b></td>
-  </tr>
-  <tbody>
-	<tr *ngFor="let item of excelData">
-		<td>{{item.numberrange}}</td>
-		<td>{{item.name}}</td>
-		<td>{{item.phone}}</td>
-		<td>{{item.email}}</td>
-		<td>{{item.address}}</td>
-		<td>{{item.list}}</td>
-		<td>{{item.country}}</td>
-		<td>{{item.region}}</td>
-		<td>{{item.postalZip}}</td>
-		<td>{{item.text}}</td>
-		<td>{{item.currency}}</td>
-		<td>{{item.alphanumeric}}</td>
-  </tr>
-  </tbody>
-</table>
+	<button (click)="exportAsXLSX()">
+		excel 변환</button>
+
+	<table class="table table-striped">
+		<tr>
+			<td *ngFor="let header of mockDataHeader">
+				<b>{{header}}</b>
+			</td>
+		</tr>
+		<tbody>
+			<tr *ngFor="let item of mockDataArr">
+				<td>{{item.numberrange}}</td>
+				<td>{{item.address}}</td>
+				<td>{{item.email}}</td>
+				<td>{{item.phone}}</td>
+				<td>{{item.country}}</td>
+				<td>{{item.region}}</td>
+				<td>{{item.list}}</td>
+				<td>{{item.text}}</td>
+				<td>{{item.currency}}</td>
+				<td>{{item.alphanumeric}}</td>
+				<td>{{item.postalZip}}</td>
+				<td>{{item.name}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
