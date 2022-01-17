@@ -28,3 +28,20 @@
 		</tbody>
 	</table>
 </div>
+
+<div class="ul-form-excel">
+	<ul>
+		<li *ngFor="let header of mockDataHeader">
+			<b>{{header}}</b>
+		</li>
+	</ul>
+	<ul>
+    <li *ngFor="let header of mockDataHeader; let i = index">
+			<div *ngFor="let item of mockDataArr; let j = index;"
+			title="{{renderListText(mockDataArr[j], header)}}"
+			[innerText]="renderListText(mockDataArr[j], header)"
+			[ngStyle]="{'color': renderBold(i, j) ? 'white' : 'black', 'border-top': renderBold(i, j) && '0' }">
+			></div>
+    </li>
+</ul>
+</div>

@@ -36,6 +36,12 @@ export class ExcelService {
     FileSaver.saveAs(data, `${fileName}_exported${new Date()}${EXCEL_EXTENSION}`);
   }
 
+  public removeBorderItemIdx (json: any[]) {
+
+    return this.merges(json);
+
+  }
+
   private merges (json: any[]) {
 
     const originData = json;
