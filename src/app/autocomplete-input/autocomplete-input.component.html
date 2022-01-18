@@ -1,0 +1,20 @@
+<div class="auto-complete">
+  <div class="inner-material">
+    <input class="auto-input" type="text"
+    [placeholder]="placeholder"
+      (input)="setFilterList($event)"
+      [formControl]="item"
+      (keydown)="keyDown($event)"
+      >
+    <span class="focus-border"><i></i></span>
+    <!-- <span class="input-right-text" (click)="selectHandler()"><i class="fa fa-search"></i></span> -->
+    <!-- <span class="reset-btn" (click)="selectHandler()" *ngIf="resetShow && selectedValue && selectedValue.value"><i class="ion-close"></i></span> -->
+    <div class="auto-complate-open" *ngIf="filterList && filterList.length > 0">
+      <ul #suggestListRef>
+        <li *ngFor="let one of filterList; let i = index" (mousedown)="selectHandler(one)" [ngClass]="selectIndex == i ? 'selected' : null">
+          {{ one.text }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,202 @@
+@import "../../../../../styles/common/_mixin.scss";
+@import "../../../../../styles/common/_media.scss";
+@import "../../../../../styles/common/_color.scss";
+
+.auto-complete {
+  float: left;
+
+  @include respond-to(sm) {
+    width: 100%;
+  }
+  
+  &.short {
+    @include respond-to(sm) {
+      width: 80%;
+    }
+  }
+  .inner-material {
+    position: relative;
+    width: 100%;
+    margin: 10px 0px;  
+    z-index: 99;
+
+    .auto-input {
+      ~ .focus-bg {
+        &:before, &:after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 0;
+          height: 0;
+          background-color: $yellow-light;
+          transition: 0.5s;
+          z-index: -1;
+        }
+      }
+      &:focus ~ .focus-bg:before {
+        transition: 0.5s;
+        width: 50%;
+        left: 0;
+        top: 0;
+        height: 100%;
+      }
+    
+      ~ .focus-border {
+        &:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background-color: $blue;
+          transition: 0.3s;
+        }
+        &:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 1px;
+          background-color: $blue;
+          transition: 0.3s;
+          top: auto;
+          bottom: 0;
+          left: auto;
+          right: 0;
+        }
+        i {
+          &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 0;
+            background-color: $blue;
+            transition: 0.4s;
+          }
+          &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 0;
+            background-color: $blue;
+            transition: 0.4s;
+            left: auto;
+            right: 0;
+            top: auto;
+            bottom: 0;
+          }
+        }
+      }
+      &:focus ~ .focus-border {
+        &:before, &:after {
+          width: 100%;
+          transition: 0.3s;
+        }
+        i {
+          &:before, &:after {
+            height: 100%;
+            transition: 0.4s;
+          }
+        }
+      }
+    }
+
+    .input-right-text {
+      border-radius: 0 50px 50px 0;
+      float: left;
+      width: 10%;
+      background: #fff;
+      border: 1px solid #eee;
+      border-left: 0;
+      height: 34px;
+      line-height: 30px;
+      position: relative;
+      top:0;
+      right: 0;
+      cursor: pointer;
+      @include transition(all .2s);
+
+      &:hover {
+        color: #fff;
+        background: $blue;
+        @include transition(all .2s);
+      }
+
+      i {
+        margin: 0 0 0 -5px;
+      }
+    }
+
+    .auto-complate-open {
+      position: absolute;
+      width: 100%;
+      max-height: 300px;
+      background: $blue;
+      color: #fff;
+      z-index: 11;
+      overflow-y: auto;
+      @include box-shadow-sm;
+      ul {
+        display: block;
+                        margin: 0;
+        li {
+          display: block;
+          padding: 10px 0px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          word-wrap: normal;
+          padding: 10px;
+          border-top: 1px solid #0398dc;
+          font-size: 12px;
+          cursor: pointer;
+          @include transition(all .2s);
+          &:first-child {
+            border: none;
+          }
+          &:hover {
+            background: #0398dc;
+            @include transition(all .2s);
+          }
+          &.selected {
+            background: #0398dc;
+          }
+          .port-label {
+            display: inline-block;
+            width: 42px;
+            text-align: center;
+            padding: 2px 4px;
+            @include border-radius-sm;
+            margin: 0px 4px 0px 0px;
+            background: $lavender;
+          }
+          .air-label {
+            display: inline-block;
+            width: 42px;
+            text-align: center;
+            padding: 2px 4px;
+            @include border-radius-sm;
+            margin: 0px 4px 0px 0px;
+            background: $mint;
+          }
+          .city-label {
+            display: inline-block;
+            width: 42px;
+            text-align: center;
+            padding: 2px 4px;
+            @include border-radius-sm;
+            margin: 0px 4px 0px 0px;
+            background: $bitter;
+          }
+        }
+      }
+    }
+  }
+}

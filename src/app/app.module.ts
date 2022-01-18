@@ -11,6 +11,7 @@ import { TabSlideModule } from './tab-slide/tab-slide.module';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormModule } from './form/form.module';
 import { ExcelModule } from './excel/excel.module';
+import { SharemoduleModule } from './sharemodule/sharemodule.module';
 
 @NgModule({
   imports:      [ 
@@ -21,9 +22,8 @@ import { ExcelModule } from './excel/excel.module';
     SlideModule,
     TabSlideModule,
     DragDropModule,
-    ReactiveFormsModule,
-    FormModule,
-    ExcelModule
+    ExcelModule,
+    SharemoduleModule
   ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ],
