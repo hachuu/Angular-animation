@@ -11,7 +11,7 @@
     <!-- <span class="reset-btn" (click)="selectHandler()" *ngIf="resetShow && selectedValue && selectedValue.value"><i class="ion-close"></i></span> -->
     <div class="auto-complate-open" *ngIf="filterList && filterList.length > 0">
       <ul #suggestListRef>
-        <li *ngFor="let one of filterList; let i = index" (mousedown)="selectHandler(one)" [ngClass]="selectIndex == i ? 'selected' : null">
+        <li *ngFor="let one of filterList; let i = index" (mousedown)="selectHandler(one)" [ngClass]="{'selected': selectIndex === i}">
           {{ one.text }}
         </li>
       </ul>
