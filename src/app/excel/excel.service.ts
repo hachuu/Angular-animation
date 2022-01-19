@@ -17,7 +17,8 @@ export class ExcelService {
     const myworksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json, { header });
 
     myworksheet['!merges'] = this.merges(json);
-    const myworkbook: XLSX.WorkBook = { Sheets: { 'data': myworksheet }, SheetNames: ['data'] };
+    myworksheet['!!autofilter'] = ['numberrange']
+    const myworkbook: XLSX.WorkBook = { Sheets: { 'yaho': myworksheet, 'data2': myworksheet }, SheetNames: ['yaho', 'data2'] };
     const excelBuffer: any = XLSX.write(myworkbook, { bookType: 'xlsx', type: 'array' });
 
     console.group();
