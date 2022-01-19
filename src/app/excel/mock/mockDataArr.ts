@@ -25,7 +25,7 @@ export const mockDataArr = [
       "currency": "$27.13",
       "alphanumeric": "ZYK78IJX9KW",
       "postalZip": "4759",
-      "name": "Hunter Pierce"
+      "name": "Jada Mayer"
     },
     {
       "numberrange": 4,
@@ -39,7 +39,7 @@ export const mockDataArr = [
       "currency": "$73.92",
       "alphanumeric": "MYE86JOU9US",
       "postalZip": "J3C 2C3",
-      "name": "Tanisha Love"
+      "name": "Jada Mayer"
     },
     {
       "numberrange": 8,

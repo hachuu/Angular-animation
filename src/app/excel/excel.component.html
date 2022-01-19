@@ -4,7 +4,7 @@
 	<button (click)="exportAsXLSX()">
 		excel 변환</button>
 
-	<table class="table table-striped">
+	<table class="table table-striped" id="table">
 		<tr>
 			<td *ngFor="let header of mockDataHeader">
 				<b>{{header}}</b>
@@ -24,6 +24,8 @@
 				<td>{{item.alphanumeric}}</td>
 				<td>{{item.postalZip}}</td>
 				<td>{{item.name}}</td>
+				<!-- <td><img [src]="'https://placeimg.com/300/300/nature/6'" style="height:500px; width:500px" 
+				/></td> -->
 			</tr>
 		</tbody>
 	</table>
@@ -35,7 +37,7 @@
 			<b>{{header}}</b>
 		</li>
 	</ul>
-	<ul>
+	<ul id="ul">
     <li *ngFor="let header of mockDataHeader; let i = index">
 			<div *ngFor="let item of mockDataArr; let j = index;"
 			title="{{renderListText(mockDataArr[j], header)}}"

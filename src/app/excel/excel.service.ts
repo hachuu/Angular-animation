@@ -15,13 +15,68 @@ export class ExcelService {
   public exportAsExcelFile(json: any[], excelFileName: string, header?: string[]): void {
 
     const myworksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json, { header });
-
+    const tablesheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(document.getElementById('table'));
+    // const ulsheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(document.getElementById('ul'));
+    tablesheet['!merges'] = this.merges(json);
     myworksheet['!merges'] = this.merges(json);
-    myworksheet['!!autofilter'] = ['numberrange']
-    const myworkbook: XLSX.WorkBook = { Sheets: { 'yaho': myworksheet, 'data2': myworksheet }, SheetNames: ['yaho', 'data2'] };
+    // myworksheet['!type'] = 'chart';
+    myworksheet['!autofilter'] = { ref: 'A1:C5' };
+    myworksheet['!margins'] = { left: 100, right: 100, top: 100, bottom: 0.7, header: 100, footer: 0.3 };
+    myworksheet['!images'] =
+      [{
+        name: 'logo',
+        data: 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png',
+        position: {
+          s: {
+            r: 0,
+            c: 0
+          },
+          e: {
+            r: 0,
+            c: 0
+          }
+        }
+      }];
+
+
+
+    //  {
+    //     name:'image1.jpeg',
+    //     // data: picBlob,
+    //     opts: {base64 : true},
+    //     position:{
+    //         type: 'twoCellAnchor',
+    //         attrs: {editAs:'oneCell'},
+    //         from: { col: 2, row : 2 },
+    //         to: { col: 6, row: 5 }
+    //     }
+    // };
+
+    const myworkbook: XLSX.WorkBook = { 
+      Sheets: { 'data': myworksheet, 'table': tablesheet }, 
+      SheetNames: ['data', 'table'],
+      Props: {
+        Title: 'SheetJS Tutorial',
+      },
+      Workbook: {
+        Views: [ {
+          RTL: false,
+          }
+        ],
+        Names: [
+          {
+            Ref: 'Sheet1!A1',
+            Name: 'Chart1',
+            Sheet: 0,
+            Comment: 'Chart1'
+          }
+        ]
+      }
+    };
     const excelBuffer: any = XLSX.write(myworkbook, { bookType: 'xlsx', type: 'array' });
 
     console.group();
+    console.log('tablesheet', tablesheet);
     console.log('myworksheet', myworksheet);
     console.log('myworkbook', myworkbook);
     console.log('excelBuffer', excelBuffer);

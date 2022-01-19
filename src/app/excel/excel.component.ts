@@ -38,7 +38,7 @@ export class ExcelComponent implements OnInit {
   // j: row, i: column
   renderBold(i: number, j: number): boolean {
     const data = this.excelService.removeBorderItemIdx(this.mockDataArr);
-    console.log(this.excelService.removeBorderItemIdx(this.mockDataArr));
+    // console.log(this.excelService.removeBorderItemIdx(this.mockDataArr));
     return data.some(item => {
       // return ((item.s.r-2 < j && item.e.r >= j + 1) && item.s.c === i);
       return ((item.s.r-1 < j && item.e.r >= j + 1) && item.s.c === i);
