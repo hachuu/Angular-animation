@@ -69,7 +69,7 @@ export class AutocompleteInputComponent implements OnInit {
     }
 	}
 
-  setFilterList(event: { target: { value: any; }; }){
+  setFilterList(event: any){
 		
 		if (!event) return;
     
