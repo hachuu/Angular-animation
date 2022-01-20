@@ -3,8 +3,10 @@
 
 	<button (click)="exportAsXLSX()">
 		excel 변환</button>
+	<button (click)="generatePdf()">
+		pdf 변환</button>
 
-	<table class="table table-striped" id="table">
+	<!-- <table class="table table-striped" id="table">
 		<tr>
 			<td *ngFor="let header of mockDataHeader">
 				<b>{{header}}</b>
@@ -24,11 +26,34 @@
 				<td>{{item.alphanumeric}}</td>
 				<td>{{item.postalZip}}</td>
 				<td>{{item.name}}</td>
-				<!-- <td><img [src]="'https://placeimg.com/300/300/nature/6'" style="height:500px; width:500px" 
-				/></td> -->
+			</tr>
+		</tbody>
+	</table> -->
+
+	<table class="table table-striped" id="table">
+		<tr>
+			<td *ngFor="let header of mockDataHeader">
+				<b>{{header}}</b>
+			</td>
+		</tr>
+		<tbody>
+			<tr *ngFor="let tr of trArr">
+				<td *ngFor="let item of pasteArr">
+					<ng-container *ngIf="item === '수출' else inputTag">
+						<select selected="수출">
+							<option>수입</option>
+							<option>수출</option>
+						</select>
+					</ng-container>
+					<ng-template #inputTag>
+						<input value="{{item}}">
+					</ng-template>
+				</td>
 			</tr>
 		</tbody>
 	</table>
+
+
 </div>
 
 <div class="ul-form-excel">
@@ -47,3 +72,5 @@
     </li>
 </ul>
 </div>
+
+
