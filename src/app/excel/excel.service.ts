@@ -20,7 +20,7 @@ export class ExcelService {
     tablesheet['!merges'] = this.merges(json);
     myworksheet['!merges'] = this.merges(json);
     // myworksheet['!type'] = 'chart';
-    myworksheet['!autofilter'] = { ref: 'A1:C5' };
+    myworksheet['!autofilter'] = { ref: 'A1:L1' };
     myworksheet['!margins'] = { left: 100, right: 100, top: 100, bottom: 0.7, header: 100, footer: 0.3 };
     myworksheet['!images'] =
       [{
