@@ -10,6 +10,9 @@ import { environment } from 'src/environments/environment';
 
   ],
   imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     CommonModule,

@@ -1,0 +1,25 @@
+<div class="map-container">
+  <agm-map [latitude]="mapLat" [longitude]="mapLng" [zoom]="zoom" (mapReady)="mapReady($event)">
+    <ng-container *ngIf="orgMarker.latitude != null">
+      <!-- [iconUrl]="'/images/marker/routemarker/' + orgMarker.type + '.png'" -->
+      <!-- (mouseOver)="orgMarker.showInfoWindow = true" (mouseOut)="orgMarker.showInfoWindow = false" -->
+      <agm-marker [latitude]="orgMarker.latitude" [longitude]="orgMarker.longitude"
+        >
+        <agm-snazzy-info-window [isOpen]="orgMarker.showInfoWindow" [placement]="'bottom'" [maxWidth]="100"
+          [maxHeight]="100">
+          <ng-template>
+            <div class="info-window">
+              <h6>클릭한 위치</h6>
+            </div>
+          </ng-template>
+        </agm-snazzy-info-window>
+      </agm-marker>
+    </ng-container>
+  </agm-map>
+</div>
+
+
+<div class="input">
+  <input id="address" type="textbox" [(ngModel)]="address">
+  <input type="button" value="검색" (click)="codeAddress()">
+</div>

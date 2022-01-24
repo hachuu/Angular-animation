@@ -1,0 +1,176 @@
+.map-container {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  top: 0;
+  left: 0;
+  padding: 0 0 0 430px;
+  background: #f6f7fb;
+  z-index: 1;
+
+  // @include respond-to (md) {
+  //   padding: 0 0 0 280px;
+  // }
+
+  agm-map {
+    width: 100%;
+    height: 100%;
+
+    // @include respond-to (mobile) {
+    //   display: none;
+    // }
+  }
+
+  .map-vessel-name, .map-port-name {
+    top:20px;
+    color: #fff;
+    font-size: 11px;
+    padding: 6px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+  }
+
+  .map-port-name {
+    top:10px;
+  }
+
+  .map-vessel-tooltip {
+    top:20px;
+    width: 350px;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10;
+
+    .tooltip-title {
+      font-size: 14px;
+      color: #00e3ff;
+      font-weight: bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      word-break: normal;
+    }
+
+    .request-number {
+      margin: 3px 0 5px;
+      padding: 0 0 5px;
+      border-bottom: 1px solid #000;
+    }
+
+    .vessel-info {
+      ul {
+        float: left;
+        width: 50%;
+
+        li {
+          font-size: 11px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          word-break: normal;
+
+          &:first-child {
+            color: rgba(255,255,255,0.6);
+            margin: 0 0 3px;
+          }
+        }
+      }
+    }
+
+    .port-layer {
+      display: inline-block;
+      width: 100%;
+      margin: 15px 0 0;
+
+      .origin, .destination {
+        float: left;
+        font-size: 12px;
+      }
+      .destination {
+        float: right;
+      }
+    }
+
+    .flight-progress {
+      position: relative;
+      width: 100%;
+      height: 3px;
+      border-radius: 50px;
+      margin: 2px 0;
+      background-color: #f6f7fb;
+      box-shadow: inset 0 1px 1px rgba(0,0,0,0.1);
+
+      .flight-progress-bar {
+        position: relative;
+        height: 100%;
+        border-radius: 50px;
+        width: 0%;
+        -webkit-transition: width 3s; /* Safari */
+        transition: width 3s;
+        transition-timing-function: cubic-bezier(1, 0, 0.65, 0.85);
+        background-image: linear-gradient(to right, #4cd964, #5ac8fa, #007aff, #34aadc, #5856d6, #ff2d55);
+        background-size: 28em 0.25em;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+      }
+    }
+
+    .flight-time {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      margin: 3px 0 15px;
+      z-index: 11;
+
+      .start-time, .arrive-time {
+        float: left;
+        font-size: 11px;
+        margin: 1px 0;
+        letter-spacing: -0.3px;
+      }
+      .arrive-time {
+        float: right;
+      }
+    }
+  }
+
+
+  .si-content-wrapper {
+    background-color: rgba(0,0,0,0);
+    padding: 0;
+    color: #fff;
+  }
+  
+  .si-has-border .si-content-wrapper {
+    border:0;
+  }
+  
+  .si-pointer-bg-top {
+    border-top-color: rgba(0,0,0,0.7);
+  }
+  
+  .si-pointer-border-top, 
+  .si-pointer-border-bottom {
+    border:0;
+  }
+  
+  .si-pointer-bottom {
+    border:0;
+  }
+  
+  .si-close-button {
+    display: none;
+  }
+  
+  .si-shadow-inner-pointer-bottom {
+    display: none;
+  }
+}
+
+.input {
+  position: absolute;
+  bottom: 0;
+}

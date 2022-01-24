@@ -23,7 +23,7 @@ import { SharemoduleModule } from './sharemodule/sharemodule.module';
     TabSlideModule,
     DragDropModule,
     ExcelModule,
-    SharemoduleModule
+    SharemoduleModule,
   ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ],

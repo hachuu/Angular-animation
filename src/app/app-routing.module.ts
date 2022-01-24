@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'tab-slide', loadChildren: () => import('./tab-slide/tab-slide.module').then(m => m.TabSlideModule) },
   { path: '', redirectTo: '/animation', pathMatch: 'full' },
   ...FormRoutes,
-  ...ExcelRoutes
+  ...ExcelRoutes,
+  { path: 'googleMap', loadChildren: () => import('./agmap/agmap.module').then(m => m.AgmapModule) },
 ];
 
 @NgModule({
