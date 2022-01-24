@@ -2,3 +2,5 @@
 
 [ag grid로 excel image 넣기](https://ag-grid.com/angular-data-grid/excel-export-images/)
 [자바스크립트-image-data를-Excel로-내보내기-featexceljs](https://all-dev-kang.tistory.com/entry/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-image-data%EB%A5%BC-Excel%EB%A1%9C-%EB%82%B4%EB%B3%B4%EB%82%B4%EA%B8%B0-featexceljs)
+
+[Getting Lat/Lng from a Click Event](https://developers.google.com/maps/documentation/javascript/examples/event-click-latlng?hl=en#maps_event_click_latlng-typescript)
