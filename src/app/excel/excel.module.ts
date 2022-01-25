@@ -4,12 +4,14 @@ import { ExcelComponent } from './excel.component';
 import { ExcelService } from './excel.service';
 import { SharemoduleModule } from '../sharemodule/sharemodule.module';
 import { AutocompleteInputModule } from '../autocomplete-input/autocomplete-input.module';
+import { PasteCellDirective } from './paste-cell.directive';
 
 
 
 @NgModule({
   declarations: [
-    ExcelComponent
+    ExcelComponent,
+    PasteCellDirective
   ],
   imports: [
     SharemoduleModule,

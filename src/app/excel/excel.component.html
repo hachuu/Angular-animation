@@ -37,8 +37,8 @@
 			</td>
 		</tr>
 		<tbody>
-			<tr *ngFor="let tr of trArr">
-				<td *ngFor="let item of pasteArr">
+			<tr *ngFor="let tr of pastedArray; let rowIdx = index;">
+				<td *ngFor="let item of tr; let columnIdx = index;">
 					<ng-container *ngIf="item === '수출' else inputTag">
 						<select selected="수출">
 							<option>수입</option>
@@ -46,7 +46,7 @@
 						</select>
 					</ng-container>
 					<ng-template #inputTag>
-						<input value="{{item}}">
+						<input value="{{item}}" appPasteCell [rowIdx]="rowIdx" [columnIdx]="columnIdx" [trArr]="pastedArray" (pasteArrEmit)="setPasteDataArr($event)">
 					</ng-template>
 				</td>
 			</tr>
