@@ -22,34 +22,17 @@ export class PasteCellDirective {
     tr.forEach((v, i) => {
       if (v) {
         const currentRow = tr[i];
-        let pasteArr: string[] = [];
+        let pasteArr: any[] = this.trArr.length > this.rowIdx + i ? [...this.trArr[this.rowIdx + i]] : [];
         Array.from(this.trArr[0]).forEach((v, j) => {
           if (this.columnIdx+j < this.trArr[0].length) {
             const currentColumn = currentRow.split('\t')[j];
-            pasteArr[this.columnIdx+j]= currentColumn;
-            console.log(pasteArr);
+            pasteArr[this.columnIdx+j]= currentColumn || pasteArr[this.columnIdx+j];
           }
         });
 
-        // console.log(this.trArr[i]);
-        // [columnIdx, currentColumn.length -1]
         this.trArr[this.rowIdx + i] = pasteArr;
       }
     });
-    
-    // const pasteArr = pastedInput?.split('	');
-    // console.log(pasteArr);
-    
-    // let trArr = new Array(trLength);
-    // console.log('trLength', trLength);
-    // console.log(pasteArr);
-
-
-    // console.log('rowIdx ', this.rowIdx);
-    // console.log('columnIdx ', this.columnIdx);
-
-    // this.trArr[this.rowIdx] = this.tdArr;
-    // this.trArr[this.trArr.length || 0] = this.pasteArr;
     console.log(this.trArr);
     this.pasteArrEmit.emit(this.trArr);
   }
