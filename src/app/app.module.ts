@@ -12,7 +12,6 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { FormModule } from './form/form.module';
 import { ExcelModule } from './excel/excel.module';
 import { SharemoduleModule } from './sharemodule/sharemodule.module';
-import { ModalDirectiveDirective } from './modal-directive.directive';
 import { ModalDirective } from './modal.directive';
 
 @NgModule({
@@ -27,7 +26,7 @@ import { ModalDirective } from './modal.directive';
     ExcelModule,
     SharemoduleModule,
   ],
-  declarations: [ AppComponent, ModalDirectiveDirective, ModalDirective ],
+  declarations: [ AppComponent, ModalDirective ],
   bootstrap:    [ AppComponent ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   // exports: [environment.production ? BrowserAnimationsModule : NoopAnimationsModule,]

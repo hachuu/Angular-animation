@@ -10,7 +10,7 @@ export class ModalDirective implements OnChanges {
   @Output() closeEmit = new EventEmitter();
 
   @HostListener('document:click', ['$event'])
-  clickout(event: { target: { classList: { contains: (arg0: string) => any; }; }; stopPropagation: () => void; preventDefault: () => void; }) {
+  clickout(event: any) {
     if (event.target.classList.contains('modal-close') || event.target.classList.contains('btn-lg')) {
       const input = document.getElementById(this.id) as HTMLInputElement;
       this.closeEmit.emit();
@@ -19,7 +19,7 @@ export class ModalDirective implements OnChanges {
       if (!event.target.classList.contains('input')) {
         event.stopPropagation();
         event.preventDefault();
-        return false;
+        return;
       }
     }
   }
@@ -35,7 +35,7 @@ export class ModalDirective implements OnChanges {
       if (!event.target.classList.contains('input')) {
         event.stopPropagation();
         event.preventDefault();
-        return false;
+        return;
       }
     }
   }
