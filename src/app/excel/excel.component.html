@@ -6,14 +6,14 @@
 	<button (click)="generatePdf()">
 		pdf 변환</button>
 
-	<!-- <table class="table table-striped" id="table">
+	<table class="table table-striped" id="table">
 		<tr>
 			<td *ngFor="let header of mockDataHeader">
 				<b>{{header}}</b>
 			</td>
 		</tr>
 		<tbody>
-			<tr *ngFor="let item of mockDataArr">
+			<!-- <tr *ngFor="let item of mockDataArr">
 				<td>{{item.numberrange}}</td>
 				<td>{{item.address}}</td>
 				<td>{{item.email}}</td>
@@ -26,11 +26,16 @@
 				<td>{{item.alphanumeric}}</td>
 				<td>{{item.postalZip}}</td>
 				<td>{{item.name}}</td>
+			</tr> -->
+			<tr *ngFor="let tr of pastedArray; let rowIdx = index;">
+				<td *ngFor="let item of tr; let columnIdx = index;">
+					{{item}}
+				</td>
 			</tr>
 		</tbody>
-	</table> -->
+	</table>
 
-	<table class="table table-striped" id="table">
+	<table class="table table-striped">
 		<tr>
 			<td *ngFor="let header of mockDataHeader">
 				<b>{{header}}</b>

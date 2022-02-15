@@ -15,9 +15,9 @@ export class ExcelService {
   public exportAsExcelFile(json: any[], excelFileName: string, header?: string[]): void {
 
     const myworksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json, { header });
-    const tablesheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(document.getElementById('table'));
+    const tablesheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(document.getElementById('table') as HTMLTableElement);
     // const ulsheet: XLSX.WorkSheet = XLSX.utils.table_to_sheet(document.getElementById('ul'));
-    tablesheet['!merges'] = this.merges(json);
+    // tablesheet['!merges'] = this.merges(json);
     myworksheet['!merges'] = this.merges(json);
     // myworksheet['!type'] = 'chart';
     myworksheet['!autofilter'] = { ref: 'A1:L1' };

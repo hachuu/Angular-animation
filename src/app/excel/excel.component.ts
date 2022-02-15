@@ -56,7 +56,8 @@ export class ExcelComponent implements OnInit {
 
     (pdf as any).autoTable({
     head: [['ID', 'Name', 'Email', 'Profile']],
-    body: [[1, 'John', 'john@yahoo.com', 'HR'],
+    body: [
+      [1, 'John', 'john@yahoo.com', 'HR'],
       [2, 'Angel', 'angel@yahoo.com', 'Marketing'],
       [3, 'Harry', 'harry@yahoo.com', 'Finance'],
       [4, 'Anne', 'anne@yahoo.com', 'Sales'],
@@ -68,7 +69,7 @@ export class ExcelComponent implements OnInit {
     theme: 'plain',
     didDrawCell: (data: { column: { index: any; }; }) => {
         console.log(data.column.index)
-    }
+      }
     })
 
     // Open PDF document in browser's new tab
@@ -76,7 +77,7 @@ export class ExcelComponent implements OnInit {
 
     // Download PDF doc  
     pdf.save('table.pdf');
-}  
+  }
 
 
   renderListText(item: any, header: string): string | number {
