@@ -49,12 +49,12 @@ export class ExcelComponent implements OnInit {
     var pdf = new jsPDF();
 
     pdf.setFontSize(20);
-    pdf.text('Angular PDF Table', 11, 8);
+    pdf.text('PACKING LIST', 11, 8);
     pdf.setFontSize(12);
     pdf.setTextColor(99);
 
 
-    (pdf as any).autoTable({ html: '#table' })
+    (pdf as any).autoTable({ html: '#table', theme: 'grid' });
 
     // (pdf as any).autoTable({
     // head: [['ID', 'Name', 'Email', 'Profile']],
