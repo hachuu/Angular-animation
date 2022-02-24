@@ -12,6 +12,7 @@ export class DropFileComponent implements OnInit {
   @Input() multiple: boolean = false;
   @Input() disabled: boolean = false;
   @Input() savedFileNm: string = '';
+  @Input() isSavedFileError: boolean = false;
   @Input() imgIcon: string = 'ri-camera-fill';
   @Input() titleText: string = '클릭, 혹은 드래그하여 파일을 등록해주세요.';
   isFile = false;
@@ -40,31 +41,46 @@ export class DropFileComponent implements OnInit {
   ngOnChanges(changes:SimpleChanges) {
     if(changes['savedFileNm'] && changes['savedFileNm'].currentValue) {
       this.fileName = this.savedFileNm;
-      this.isLoading = false;
       this.isFile = true;
+      this.isLoading = false;
+    } else if (changes['savedFileNm'] && (changes['savedFileNm'].currentValue === '' || changes['savedFileNm'].currentValue === null)) {
+      this.fileName = '';
+      this.isLoading = false;
+    }
+    if(changes['isSavedFileError'] && changes['isSavedFileError'].currentValue) {
+      this.isLoading = false;
     }
   }
 
   onFileSelected(files: any) {
-    if (files && files[0]) {
-      this.isFile = true;
-      this.isLoading = true;
-      console.log(files);
-      if (files[0].size > this.FILE_SIZE) {
-        console.log('파일은 5MB로 제한됩니다.')
-        // this.fileEmit.emit();
-      } else if (this.fileType === 'doc' && files.type !== 'application/pdf') {
-        console.log('지원하지 않는 형식의 파일입니다.')
-        this.fileEmit.emit();
-      } else if (this.fileType === 'photo' && !['image/png', 'image/jpeg', 'image/jpg'].includes(files[0].type)) {
-        console.log('지원하지 않는 형식의 파일입니다.')
-        this.fileEmit.emit();
+    if (!!files) {
+      if(files.length > 1) {
+  
       } else {
-        // this.uploadForm.get('corpReg')?.setValue(files[0]);
-        this.fileName = files[0].name;
-        this.fileEmit.emit(files[0]);
+        this.isFile = true;
+        this.isLoading = true;
+        // this.fileName = '';
+        if (files[0].size > this.FILE_SIZE) {
+          console.log('파일은 5MB로 제한됩니다.')
+          this.errorFileSelected();
+        } else if (this.fileType === 'doc' && files[0].type !== 'application/pdf') {
+          console.log('지원하지 않는 형식의 파일입니다.')
+          this.errorFileSelected();
+        } else if (this.fileType === 'photo' && !['image/png', 'image/jpeg', 'image/jpg'].includes(files[0].type)) {
+          console.log('지원하지 않는 형식의 파일입니다.')
+          this.errorFileSelected();
+        } else {
+          this.fileName = files[0].name;
+          this.fileEmit.emit(files[0]);
+        }
       }
     }
+  }
+
+  errorFileSelected() {
+    this.fileEmit.emit();
+    this.isLoading = false;
+    this.isFile = false;
   }
 
 }

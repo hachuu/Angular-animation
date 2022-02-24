@@ -9,10 +9,6 @@
       (change)="onFileSelected(fileUpload.files)"
       [attr.disabled]="disabled ? true : null"
       #fileUpload />
-      <!-- <input type="file" class="input"
-      [attr.accept]="fileType === 'photo' ? 'image/png, image/jpeg, image/jpg' :'application/pdf'" 
-      (change)="onFileSelected(fileUpload.files)"
-      #fileUpload /> -->
     </form>
   </div>
   <div class="uploadLoading" *ngIf="isLoading"></div>
