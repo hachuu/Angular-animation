@@ -49,34 +49,42 @@ export class ExcelComponent implements OnInit {
     var pdf = new jsPDF();
 
     pdf.setFontSize(20);
-    pdf.text('Angular PDF Table', 11, 8);
+    pdf.text('PACKING LIST', 11, 8);
     pdf.setFontSize(12);
     pdf.setTextColor(99);
 
 
-    (pdf as any).autoTable({
-    head: [['ID', 'Name', 'Email', 'Profile']],
-    body: [[1, 'John', 'john@yahoo.com', 'HR'],
-      [2, 'Angel', 'angel@yahoo.com', 'Marketing'],
-      [3, 'Harry', 'harry@yahoo.com', 'Finance'],
-      [4, 'Anne', 'anne@yahoo.com', 'Sales'],
-      [5, 'Hardy', 'hardy@yahoo.com', 'IT'],
-      [6, 'Nikole', 'nikole@yahoo.com', 'Admin'],
-      [7, 'Sandra', 'Sandra@yahoo.com', 'Sales'],
-      [8, 'Lil', 'lil@yahoo.com', 'Sales']
-    ],
-    theme: 'plain',
-    didDrawCell: (data: { column: { index: any; }; }) => {
-        console.log(data.column.index)
-    }
-    })
+    (pdf as any).autoTable({ html: '#table', theme: 'grid' });
+
+    // (pdf as any).autoTable({
+    // head: [['ID', 'Name', 'Email', 'Profile']],
+    // body: [
+    //   [1, 'John', 'john@yahoo.com', 'HR'],
+    //   [2, 'Angel', 'angel@yahoo.com', 'Marketing'],
+    //   [3, 'Harry', 'harry@yahoo.com', 'Finance'],
+    //   [4, 'Anne', 'anne@yahoo.com', 'Sales'],
+    //   [5, 'Hardy', 'hardy@yahoo.com', 'IT'],
+    //   [6, 'Nikole', 'nikole@yahoo.com', 'Admin'],
+    //   [7, 'Sandra', 'Sandra@yahoo.com', 'Sales'],
+    //   [8, 'Lil', 'lil@yahoo.com', 'Sales']
+    // ],
+    // theme: 'plain',
+    // didDrawCell: (data: { column: { index: any; }; }) => {
+    //     console.log(data.column.index)
+    //   }
+    // })
+    // (pdf as any).autoTable({
+    //   body: [
+    //     [{ content: 'Text', colSpan: 2, rowSpan: 2, styles: { halign: 'center' } }],
+    //   ],
+    // })
 
     // Open PDF document in browser's new tab
     pdf.output('dataurlnewwindow')
 
     // Download PDF doc  
     pdf.save('table.pdf');
-}  
+  }
 
 
   renderListText(item: any, header: string): string | number {

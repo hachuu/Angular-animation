@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AnimationBuilderRoute } from './animation-builder/animation-builder.route';
 import { ExcelRoutes } from './excel/excel.component.route';
 import { FormRoutes } from './form/form.component.route';
+import { PrintRoutes } from './print/print.component.route';
 
 const routes: Routes = [
   ...AnimationBuilderRoute,
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/animation', pathMatch: 'full' },
   ...FormRoutes,
   ...ExcelRoutes,
+  ...PrintRoutes,
   { path: 'googleMap', loadChildren: () => import('./agmap/agmap.module').then(m => m.AgmapModule) },
 ];
 

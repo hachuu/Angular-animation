@@ -79,6 +79,9 @@
               "browserTarget": "animation:build:development"
             }
           },
+          "options": {
+            "port": 1337
+          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {

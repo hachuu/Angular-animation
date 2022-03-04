@@ -1,0 +1,15 @@
+<div class="dropzone">
+  <div class="box" *ngIf="!isLoading">
+    <form [formGroup] = "uploadForm">
+      <i class="upload" [ngClass]="imgIcon" *ngIf="!isFile"></i>
+      <div class="title" *ngIf="!isFile">{{titleText}}</div>
+      <span class="filename">{{fileName}}</span>
+      <input [multiple]="multiple ? 'multiple' : null" type="file" class="input"
+      [attr.accept]="fileType === 'photo' ? 'image/png, image/jpeg, image/jpg' :'application/pdf'" 
+      (change)="onFileSelected(fileUpload.files)"
+      [attr.disabled]="disabled ? true : null"
+      #fileUpload />
+    </form>
+  </div>
+  <div class="uploadLoading" *ngIf="isLoading"></div>
+</div>
