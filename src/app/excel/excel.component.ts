@@ -54,7 +54,7 @@ export class ExcelComponent implements OnInit {
     pdf.setTextColor(99);
 
 
-    (pdf as any).autoTable({ html: '#table', theme: 'grid' });
+    (pdf as any).autoTable({ html: '#test-div', theme: 'grid' });
 
     // (pdf as any).autoTable({
     // head: [['ID', 'Name', 'Email', 'Profile']],
