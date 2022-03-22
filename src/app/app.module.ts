@@ -13,6 +13,7 @@ import { FormModule } from './form/form.module';
 import { ExcelModule } from './excel/excel.module';
 import { SharemoduleModule } from './sharemodule/sharemodule.module';
 import { ModalDirective } from './modal.directive';
+import { ReactiveFormModule } from './reactive-form/reactive-form.module';
 
 @NgModule({
   imports:      [ 
@@ -25,6 +26,7 @@ import { ModalDirective } from './modal.directive';
     DragDropModule,
     ExcelModule,
     SharemoduleModule,
+    ReactiveFormModule
   ],
   declarations: [ AppComponent, ModalDirective ],
   bootstrap:    [ AppComponent ],

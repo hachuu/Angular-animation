@@ -4,6 +4,7 @@ import { AnimationBuilderRoute } from './animation-builder/animation-builder.rou
 import { ExcelRoutes } from './excel/excel.component.route';
 import { FormRoutes } from './form/form.component.route';
 import { PrintRoutes } from './print/print.component.route';
+import { ReactiveFormRoute } from './reactive-form/reactive-form.component.route';
 
 const routes: Routes = [
   ...AnimationBuilderRoute,
@@ -13,6 +14,7 @@ const routes: Routes = [
   ...FormRoutes,
   ...ExcelRoutes,
   ...PrintRoutes,
+  ...ReactiveFormRoute,
   { path: 'googleMap', loadChildren: () => import('./agmap/agmap.module').then(m => m.AgmapModule) },
 ];
 
