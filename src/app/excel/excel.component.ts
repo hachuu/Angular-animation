@@ -54,7 +54,7 @@ export class ExcelComponent implements OnInit {
     pdf.setTextColor(99);
 
 
-    (pdf as any).autoTable({ html: '#table', theme: 'grid' });
+    // (pdf as any).autoTable({ html: '#test-div', theme: 'grid' });
 
     // (pdf as any).autoTable({
     // head: [['ID', 'Name', 'Email', 'Profile']],
@@ -73,17 +73,18 @@ export class ExcelComponent implements OnInit {
     //     console.log(data.column.index)
     //   }
     // })
-    // (pdf as any).autoTable({
-    //   body: [
-    //     [{ content: 'Text', colSpan: 2, rowSpan: 2, styles: { halign: 'center' } }],
-    //   ],
-    // })
+    (pdf as any).autoTable({
+      body: [
+        [{ content: 'Text', colSpan: 2, rowSpan: 2, styles: { halign: 'center' } }],
+      ],
+    })
 
     // Open PDF document in browser's new tab
     pdf.output('dataurlnewwindow')
 
     // Download PDF doc  
     pdf.save('table.pdf');
+    console.log(pdf.output('bloburl'))
   }
 
 

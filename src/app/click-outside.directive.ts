@@ -1,10 +1,13 @@
- import {Directive, ElementRef, Output, EventEmitter, HostListener} from '@angular/core';
+
+import { Directive, ElementRef, Output, EventEmitter, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[clickOutside]'
 })
 export class ClickOutsideDirective {
-  constructor(private _elementRef : ElementRef) {
+
+  isDraged: boolean | undefined = undefined;
+  constructor(private _elementRef: ElementRef) {
   }
 
   @Output()
@@ -14,7 +17,21 @@ export class ClickOutsideDirective {
   public onClick(targetElement: any) {
     const clickedInside = this._elementRef.nativeElement.contains(targetElement);
     if (!clickedInside) {
-      this.clickOutside.emit(targetElement);
+      if (this.isDraged === undefined) {
+        this.clickOutside.emit(targetElement);
+      } else {
+        this.isDraged = undefined;
+      }
     }
+  }
+
+  @HostListener('mousedown', ['$event'])
+  public onMousedown(evt: { preventDefault: () => void; stopPropagation: () => void; }) {
+    this.isDraged = true;
+  }
+
+  @HostListener('mouseup', ['$event'])
+  public onMouseup(evt: { preventDefault: () => void; stopPropagation: () => void; }) {
+    this.isDraged = undefined;
   }
 }
