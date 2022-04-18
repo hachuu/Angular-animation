@@ -15,7 +15,11 @@ export class ReactiveFormComponent implements OnInit {
   });
 
   constructor(private fb: FormBuilder) {
-    this.form.controls.lessons.valueChanges.subscribe(x=>console.log(x))
+    this.form.controls.lessons.valueChanges.subscribe(x=> {
+
+      console.log(x);
+
+    })
    }
 
   get lessons() {
@@ -24,7 +28,8 @@ export class ReactiveFormComponent implements OnInit {
 
   addLesson() {
     const lessonForm = this.fb.group({
-      title: ['', Validators.required],
+      title: ['', {validators: Validators.required, updateOn: 'blur',}],
+      // title: ['', {validators: Validators.required, updateOn: 'blur', asyncValidators: [courseTitleValidator(this.courses)],}],
       level: ['beginner', Validators.required]
     });
     this.lessons.push(lessonForm);
