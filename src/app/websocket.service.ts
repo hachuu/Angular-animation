@@ -16,5 +16,9 @@ export class WebsocketService {
     );
   }
 
+  sendMessage(message: string) {
+    this.subject.next(message);
+  }
+
   
 }
