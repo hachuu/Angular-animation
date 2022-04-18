@@ -1,0 +1,453 @@
+<div class="document-preview-modal">
+  <label class="btn import-btn" for="document-preveiw-modal" labelChecked [id]="'document-preveiw-modal'" (click)="activeDocPreviewModal()" (keyup.enter)="activeDocPreviewModal()"><i class="ri-eye-line"></i>
+    미리보기</label>
+    <!-- [modal]="activeDocumentsPreveiwModal" -->
+  <input class="modal-state" id="document-preveiw-modal" type="checkbox" (closeEmit)="closeModal($event)"/>
+  <div id="modal">
+    <label class="modal-bg" for="document-preview-modal"></label>
+    <div class="modal-inner">
+      <div class="header-title">
+        <div class="file-name">파일명 OR 파일번호</div>
+        <div class="header-option">
+          <ul class="page-controller">
+            <li>
+              <a><i class="ri-arrow-left-s-line"></i></a>
+            </li>
+            <li>
+              <a><i class="ri-arrow-right-s-line"></i></a>
+            </li>
+          </ul>
+
+          <div class="edit-icon download-doc-btn">
+            <div class="more-icon-area">
+              <div id="more-icon-box" [ngClass]="{'select': activeDownloadOp}" (click)="clickDownloadBtn()"><i class="ri-download-2-line"></i>Download</div>
+              <div id="more-dropdown-content" [@activeItem]="activeDownloadOp">
+                <ul>
+                  <li><a> PDF</a></li>
+                  <li><a> XSLX</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="edit-icon">
+            <div class="more-icon-area">
+              <div id="more-icon-box" [ngClass]="{'select': activeItem}" (click)="toggleItem()"><i class="ri-more-line"></i></div>
+              <div id="more-dropdown-content" [@activeItem]="activeItem">
+                <ul>
+                  <li><a><i class="ri-printer-line"></i> Print</a></li>
+                  <li><a><i class="ri-stackshare-line"></i> Share</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <label class="modal-close" for="document-data-modal" tabindex="0"></label>
+
+      </div>
+      <input type="file" class="input" (change)="onFileSelected(fileUpload.files)" #fileUpload>
+      <div class="modal-content">
+        <div class="modal-content-inner">
+          <section>
+            <iframe #iframe [src]="tempImgUrl" frameborder="0" width="100%" height="800" style="border: none;"></iframe>
+            <div class="section-inner" style="display: none;" >
+              <!-- <div class="section-inner"> -->
+              <div class="form-layout">
+                <table cellspacing="0">
+                  <tr class="border-top border-right">
+                    <td class="border-left" colspan=4 align="left" valign=bottom><b>1.Shipper</b></td>
+                    <td class="border-left" colspan=4 align="left" valign=top><b>8. No. &amp; date of invoice</b></td>
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" colspan=4 align="left" valign=bottom>Hyundai Samho Heavy Industries</td>
+                    <td class="border-left" colspan=4 align="left" valign=bottom>HKTC-20210115-001, 15-JAN-2021</td>
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" colspan=4 align="left" valign=bottom>93, Daebul-ro, Samho-eup, Yeongam-gun, Jeollanam-do 58462 Korea</td>
+                    <td class="border-top border-left"colspan=4 align="left" valign=bottom><b>9. L/C No. and date</b></td>
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" colspan=4 align="left" valign=bottom>(TEL. : 82-61-460-4471, FAX. : 82-61-460-3789)</td>
+                    <td class="border-left" colspan=4 align="left" valign=bottom></td>
+                    
+                  </tr>
+                  <tr class="border-top border-right">
+                    <td class="border-left" colspan=4 align="left" valign=bottom><b>2. Consignee</b></td>
+                    <td class="border-left" colspan=4 align="left" valign=bottom><b>10. L/C Issuing Bank</b></td>
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" colspan=4 align="left" valign=bottom>SEPCO ARABIA COMPANY</td>
+                    <td class="border-left" colspan=4 align="left" valign=bottom>* COUNTRY OF ORIGIN : REPUBLIC OF KOREA</td>
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" align="left" colspan=4 valign=bottom>UNIT NO14, 4256 BUILDING, ANAS IBN MALIK, AL YASMEEN DIST,</td>
+                    <td class="border-left" colspan=4 align="left" valign=bottom></td>
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" align="left" colspan=4 valign=bottom>P.O.BOX 6726, RIYADH 13326, KINGDOM OF SAUDI ARABIA.</td>
+                    <td class="border-top border-left" colspan=4 align="left" valign=bottom><b>11. Terms of Delivery and payment</b></td>
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" align="left" colspan=4 valign=bottom>(TEL/FAX. : +966-11-2472625, CR NO.: 1010418840 7001861835)</td>
+                    <td class="border-left" colspan=4 align="left" valign=bottom></td>
+                    
+                  </tr>
+                  <tr class="border-top border-right">
+                    <td class="border-left" colspan=4 align="left" valign=bottom><b>3. Noitfy Party</b></td>
+                    <td class="border-left" colspan=4 align="left" valign=bottom><b>12. Remarks</b></td>
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" colspan=4 align="left" valign=bottom></td>
+                    <td class="border-left" colspan=4 align="left" valign=bottom>* COUNTRY OF ORIGIN : REPUBLIC OF KOREA</td>
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" colspan=4 align="left" valign=bottom><b>same as above</b></td>
+                    <td class="border-left" colspan=4 align="left" valign=bottom>* H.S CODE NO. : 1234-00-0000</td>
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" colspan=4 align="left" valign=bottom></td>
+                    <td class="border-left" colspan=4 align="left" valign=bottom>* NO. OF BILL OF LADING : ABC012345678</td>
+                    
+                  </tr>
+                  <tr class="border-top border-right">
+                    <td class="border-left"  align="left" valign=bottom><b>4. Port of loading</b></td>
+                    <td class="border-left"  colspan=2 align="left" valign=bottom><b>5. Port of discharging</b></td>
+                    <td class="border-left" align="left" valign=bottom><b>5-1. Final destination</b></td>
+                    <td class="border-left"  colspan=4 align="left" valign=top><b>13. Shipping Mark</b></td>
+                    
+                  </tr>
+
+                  <tr class="border-right">
+                    <td class="border-left"  align="left" valign=bottom>BUSAN Port, Korea</td>
+                    <td class="border-left"  colspan=2 align="left" valign=bottom>Dammam Port, Saudi Arabia</td>
+                    <td class="border-left" align="left" valign=bottom>Dammam Port, Saudi Arabia</td>
+                    <td class="border-left" colspan=4 align="left" valign=bottom></td>
+                    
+                  </tr>
+                  
+                  <tr class="border-right">
+                    <td class="border-left border-top" colspan=2 align="left" valign=bottom><b>6. Vessel &amp; Voy</b></td>
+                    <td class="border-top border-left" colspan=2 align="left" valign=bottom><b>7. Sailing on or about</b></td>
+                    <td class="border-left" colspan=4 align="left" valign=bottom></td>
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" colspan=2 align="left" valign=bottom>HYUNDAI 1234W</td>
+                    <td class="border-left" colspan=2 align="left" valign=bottom>2021-01-15</td>
+                    <td class="border-left" colspan=4 align="left" valign=bottom></td>
+                  </tr>
+                  <tr class="border-top border-right">
+                    <td class="border-left"  align="center" valign=middle><b>14. No.</b></td>
+                    <td class="border-left" align="center" valign=middle><b>15. C/T No.</b></td>
+                    <td class="border-left" rowspan=2 align="center" valign=middle><b>16.SKU</b></td>
+                    <td class="border-left" rowspan=2 align="center" valign=middle><b>17. Description of goods</b></td>
+                    <td class="border-left" align="center" valign=bottom><b>18. Quantity</b></td>
+                    <td class="border-left" align="center" valign=bottom><b>19. N/W</b></td>
+                    <td class="border-left" align="center" valign=bottom><b>20. G/W</b></td>
+                    <td class="border-left" align="center" valign=bottom><b>21. Measurement</b></td>
+                    
+                  </tr>
+                  <tr class="border-right border-top">
+                    <td class="border-left" align="center" valign=middle><b>(Pallet)</b></td>
+                    <td class="border-left" align="center" valign=middle><b>(Carton)</b></td>
+                    <td class="border-left" align="center" valign=middle><b>(PCS)</b></td>
+                    <td class="border-left" align="center" valign=middle><b>(KGS)</b></td>
+                    <td class="border-left" align="center" valign=middle><b>(KGS)</b></td>
+                    <td class="border-left" align="center" valign=middle><b>(CBM)</b></td>
+                    
+                    
+                    
+                  </tr>
+                  <tr class="border-right border-top">
+                    <td class="border-left" align="center" valign=middle>1</td>
+                    <td class="border-left" align="center" valign=middle>1-12</td>
+                    <td class="border-left" align="left" valign=middle>BL22HQ1000</td>
+                    <td class="border-left" align="left" valign=middle>IMPACT WRENCH</td>
+                    <td class="border-left" align="center" valign=middle>4</td>
+                    <td class="border-left" align="center" valign=middle>352.0</td>
+                    <td class="border-left" align="center" valign=middle>352.8</td>
+                    <td class="border-left" align="center" valign=middle>1.0</td>
+                    
+                  </tr>
+                  <tr class="border-right border-top">
+                    <td class="border-left" align="center" valign=middle>2</td>
+                    <td class="border-left" align="center" valign=middle>13-16</td>
+                    <td class="border-left" align="left" valign=middle>BL22G90</td>
+                    <td class="border-left" align="left" valign=middle>ANGLE FRINDER</td>
+                    <td class="border-left" align="center" valign=middle>4</td>
+                    <td class="border-left" align="center" valign=middle>106.0</td>
+                    <td class="border-left" align="center" valign=middle>106.4</td>
+                    <td class="border-left" align="center" valign=middle>2.0</td>
+                    
+                  </tr>
+                  <tr class="border-right border-top">
+                    <td class="border-left" rowspan=5 align="center" valign=middle>3</td>
+                    <td class="border-left" align="center" valign=middle>17-22</td>
+                    <td class="border-left" align="left" valign=middle>BL22R806</td>
+                    <td class="border-left" align="left" valign=middle>DRIVER DRILL</td>
+                    <td class="border-left" align="center" valign=middle>5</td>
+                    <td class="border-left" align="center" valign=middle>138.0</td>
+                    <td class="border-left" align="center" valign=middle>138.2</td>
+                    <td class="border-left" align="center" valign=middle>2.0</td>
+                    
+                  </tr>
+                  <tr class="border-right border-top">
+                    <td class="border-left" align="center" valign=middle>23</td>
+                    <td class="border-left" align="left" valign=middle>BL22R806</td>
+                    <td class="border-left" align="left" valign=middle>IMPACT WRENCH</td>
+                    <td class="border-left" align="center" valign=middle>4</td>
+                    <td class="border-left" rowspan=2 align="center" valign=middle>22.0</td>
+                    <td class="border-left" rowspan=2 align="center" valign=middle>22.6</td>
+                    <td class="border-left" rowspan=2 align="center" valign=middle>1.0</td>
+                    
+                    
+                  </tr>
+                  <tr class="border-right border-top">
+                    <td class="border-left" align="center" valign=middle></td>
+                    <td class="border-left" align="left" valign=middle>BL22HQ1300</td>
+                    <td class="border-left" align="left" valign=middle>MID-TORQUE WRENCH</td>
+                    <td class="border-left" align="center" valign=middle>5</td>
+                    
+                    
+                    
+                    <!--  -->
+                  </tr>
+                  <tr class="border-right border-top">
+                    <td class="border-left border-right" align="center" valign=middle>24</td>
+                    <td class="border-right" align="left" valign=middle>BL22HQ700</td>
+                    <td class="border-left" align="left" valign=middle>CHUNK ASSY</td>
+                    <td class="border-left" align="center" valign=middle>10</td>
+                    <td class="border-left" rowspan=2 align="center" valign=middle>4.0</td>
+                    <td class="border-left" rowspan=2 align="center" valign=middle>4.7</td>
+                    <td class="border-left" rowspan=2 align="center" valign=middle>1.0</td>
+                    
+                    
+                    
+                    
+                    
+                  </tr>
+                  <tr class="border-right border-top">
+                    <td class="border-left" valign=middle></td>
+                    <td class="border-left" align="left" valign=middle>BL22T80</td>
+                    <td class="border-left" align="left" valign=middle>SWITHCH ASSY</td>
+                    <td class="border-left" align="center" valign=middle>50</td>
+                    
+                    
+                    
+                    
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" colspan=2 align="left" valign=bottom><b>24. Total : 3 PALLETS</b></td>
+                    <td colspan=2 align="left" valign=bottom></td>
+                    <td align="center" valign=bottom></td>
+                    
+                    <td align="center" valign=bottom></td>
+                    
+                    
+                    
+                    
+                    
+                  </tr>
+                  <tr class="border-right border-top">
+                    <td class="border-left" align="center" valign=bottom></td>
+                    <td align="center" valign=bottom></td>
+                    <td colspan=2 align="center" valign=bottom><b>24 CARTONS</b></td>
+                    <td align="center" valign=bottom><b>82PCS</b></td>
+                    <td align="center" valign=bottom><b>622kg</b></td>
+                    <td align="center" valign=bottom><b>624.7kg</b></td>
+                    <td align="center" valign=bottom><b>7CBM</b></td>
+                    
+                    
+                    
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" align="center" valign=bottom></td>
+                    <td align="center" valign=bottom></td>
+                    <td align="center" valign=bottom></td>
+                    
+                    <td colspan=4 align="center" valign=bottom></td>
+                    
+                    
+                    
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" align="center" valign=bottom></td>
+                    <td align="center" valign=bottom></td>
+                    <td align="center" valign=bottom></td>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" align="center" valign=middle></td>
+                    <td align="center" valign=middle></td>
+                    <td align="center" valign=middle></td>
+                    <td align="center" valign=middle></td>
+                    
+                    <td align="left" valign=bottom></td>
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" colspan=8  align="center" valign=middle>edit</td>
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td align="left" colspan=8 valign=bottom></td>
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td align="left" colspan=8 valign=bottom></td>
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td align="left" colspan=8 valign=bottom></td>
+                    
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" colspan=8 align="center" valign=bottom>30. Signed by
+                      <img alt="화물 이미지" width="80px" height="20px" src="https://api.tradlinx.com/images/corp/logo/1600070731874Q2Bsj.png">
+                    </td>
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" colspan=8 align="center" valign=bottom>
+                      
+                    </td>
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" colspan=8 align="center" valign=bottom></td>
+                  </tr>
+                  <tr class="border-right">
+                    <td class="border-left" colspan=8 align="center" valign=bottom></td>
+                  </tr>
+                </table>
+                <table width="800" border="1px" cellspacing="0" cellpadding="10px" bordercolor="#444"  >
+                  <tbody>
+                    <tr valign="top">
+                      <td rowspan="2" style="vertical-align:top">
+                        <p style="margin:2px 0">1. Shipper</p><br>
+                        <p style="margin:2px 0">Hyundai Samho Heavy Industries<br>93, Daebul-ro, Samho-eup, Yeongam-gun, Jeollanam-do 58462 Korea</p><br>
+                        <p style="margin:2px 0">(TEL. : 82-61-460-4471, FAX. : 82-61-460-3789) </p>
+                      </td>
+                      <td>
+                        <p style="margin:2px 0">8. No. & date of invoice</p>
+                        <p style="margin:2px 0">HKTC-20210115-001, 15-JAN-2021</p>
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td><p style="margin:2px 0">9. L/C No. and date</p></td>
+                    </tr>
+                    <tr valign="top">
+                      <td rowspan="2">
+                        <p style="margin:2px 0">2. Consignee</p>
+                        <p style="margin:2px 0">SEPCO ARABIA COMPANY</p>
+                        <p style="margin:2px 0">UNIT NO14, 4256 BUILDING, ANAS IBN MALIK, AL YASMEEN DIST,</p>
+                      </td>
+                      <td>
+                        <p style="margin:2px 0">10. L/C Issuing Bank</p>
+                        <p style="margin:2px 0">* COUNTRY OF ORIGIN : REPUBLIC OF KOREA</p>
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td><p style="margin:2px 0">11. Terms of Delivery and payment</p><br></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="title">Sample 1</div>
+                <table width="800" border="1" cellspacing="0" cellpadding="10">
+                  <tbody>
+                    <tr valign="top">
+                      <td rowspan="2">
+                        1. Shipper<br />
+                        Hyundai Samho Heavy Industries<br>93, Daebul-ro, Samho-eup, Yeongam-gun, Jeollanam-do 58462 Korea<br />
+                        (TEL. : 82-61-460-4471, FAX. : 82-61-460-3789)
+                      </td>
+                      <td>
+                        8. No. & date of invoice<br />
+                        HKTC-20210115-001, 15-JAN-2021
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td>9. L/C No. and date<br /></td>
+                    </tr>
+                    <tr valign="top">
+                      <td rowspan="2">
+                        2. Consignee<br />
+                        SEPCO ARABIA COMPANY<br />
+                        UNIT NO14, 4256 BUILDING, ANAS IBN MALIK, AL YASMEEN DIST,
+                      </td>
+                      <td>
+                        10. L/C Issuing Bank<br />
+                        * COUNTRY OF ORIGIN : REPUBLIC OF KOREA
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td>11. Terms of Delivery and payment<br /></td>
+                    </tr>
+                  </tbody>
+                </table>
+        ​
+                <div class="title" style="margin: 20px 0 0;">Sample 2</div>
+                <table width="800" border="1" cellspacing="0" cellpadding="10" id="test-div">
+                  <tbody>
+                    <tr valign="top">
+                      <td >4. Port of loading<br />BUSAN Port, Korea</td>
+                      <td colspan="2" >5. Port of discharging<br />Dammam Port, Saudi Arabia</td>
+                      <td >5-1. Final destination <br>Dammam Port, Saudi Arabia</td>
+                      <td rowspan="2">13. Shipping Mark<br /></td>
+                    </tr>
+                    <tr valign="top">
+                      <td colspan="2">6. Vessel & Voy<br />HYUNDAI 1234W</td>
+                      <td colspan="2">7. Sailing on or about<br />2021-01-15</td>				      
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+        ​
+              <div class="title" style="margin: 20px 0 0;">Sample 3</div>
+              <table width="800" border="1" cellspacing="0" cellpadding="10">
+                <tbody>
+                  <tr valign="top">
+                    <td>
+                      4. Port of loading<br />
+                      BUSAN Port, Korea
+                    </td>
+                    <td>
+                      5. Port of discharging<br />
+                      Dammam Port, Saudi Arabia
+                    </td>
+                    <td  rowspan="2">13. Shipping Mark<br /></td>
+                  </tr>
+                  <tr valign="top">
+                    <td>
+                      6. Vessel & Voy<br />
+                      HYUNDAI 1234W</td>
+                    <td>7. Sailing on or about<br />2021-01-15</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
