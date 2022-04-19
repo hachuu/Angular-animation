@@ -177,3 +177,8 @@ doc.autoTable({
   },
 })
 ```
+
+
+## websocket
+- https://www.youtube.com/watch?v=8CNVYWiR5fg&t=81s
+- https://www.youtube.com/watch?v=YVMSOM9aDz0
