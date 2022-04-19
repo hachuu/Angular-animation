@@ -16,6 +16,7 @@ const routes: Routes = [
   ...PrintRoutes,
   ...ReactiveFormRoute,
   { path: 'googleMap', loadChildren: () => import('./agmap/agmap.module').then(m => m.AgmapModule) },
+  { path: 'websocket', loadChildren: () => import('./websocket/websocket.module').then(m => m.WebsocketModule) },
 ];
 
 @NgModule({
