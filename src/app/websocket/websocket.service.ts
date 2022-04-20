@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { webSocket, WebSocketSubject, WebSocketSubjectConfig } from "rxjs/webSocket";
-
-
+import * as Rx from 'rxjs';
+import { Observer, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -9,74 +9,47 @@ export class WebsocketService {
 
   domain: string = 'ws://testapi.tradlinx.com/websocket';
   
-  // allow https://testapi.tradlinx.com/websocket
-  // allow ws://localhost:4200/websocket WebSocketCtor
+  constructor() {}
 
-  chatMessage!: {
-    user: string,
-    message: string
-  }[];
-  
-  subject = webSocket({
-    url: this.domain + "/ws-conn",
-    deserializer: ({data}) => data,
-    openObserver: {
-      next: () => {
-        console.log('connetion ok');
+  private subject!: Subject<MessageEvent>;
+
+  public connect(url: any): Subject<MessageEvent> {
+    if (!this.subject) {
+      this.subject = this.create(url);
+      console.log("Successfully connected: " + url);
+    }
+    return this.subject;
+  }
+
+  private create(url: any): Subject<MessageEvent> {
+    let ws = new WebSocket(url);
+
+    let observable = Rx.Observable.create((obs: Observer<MessageEvent>) => {
+      ws.onmessage = obs.next.bind(obs);
+      ws.onerror = obs.error.bind(obs);
+      ws.onclose = obs.complete.bind(obs);
+      return ws.close.bind(ws);
+    });
+    let observer = {
+      next: (data: Object) => {
+        if (ws.readyState === WebSocket.OPEN) {
+          ws.send(JSON.stringify(data));
+        }
       }
-    }
-  });
-
-
-  webSocket!: WebSocket;
-
-
-  openWebSocket() {
-    this.webSocket = new WebSocket(this.domain + "/ws-conn");
-    this.webSocket.onopen = (event) => {
-      console.log('Open: ', event);
-    }
-
-    this.webSocket.onmessage = (event) => {
-      const chatMessage = JSON.parse(event.data);
-      this.chatMessage.push(chatMessage);
     };
-
-    this.webSocket.onclose = (event) => {
-      console.log('Close: ', event);
-    }
+    return Subject.create(observer, observable);
   }
 
-  
-  generateWSC() {
-    // const wsSubject = webSocket({
-    //   url: this.domain + "/ws-conn",
-    //   deserializer: ({data}) => data
-    // });
-    // console.log('subject', this.subject);
-  }
-
-  constructor() { 
-
-    this.openWebSocket();
 
 
-    // this.generateWSC();
-    // this.subject.subscribe(
-    //   msg => console.log('message received: ' + msg), // Called whenever there is a message from the server.
-    //   err => console.log(err), // Called if at any point WebSocket API signals some kind of error.
-    //   () => console.log('complete') // Called when connection is closed (for whatever reason).
-    // );
-  }
+  // sendMessage(message: {
+  //   user: string,
+  //   message: string
+  // }) {
+  //   this.webSocket.send(JSON.stringify(message));
+  // }
 
-  sendMessage(message: {
-    user: string,
-    message: string
-  }) {
-    this.webSocket.send(JSON.stringify(message));
-  }
-
-  closeWebSocket() {
-    this.webSocket.close();
-  }
+  // closeWebSocket() {
+  //   this.webSocket.close();
+  // }
 }
