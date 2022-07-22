@@ -1,0 +1,80 @@
+<div class="select-box" clickOutside (clickOutside)="pickerActive = false">
+  <a
+    role="button"
+    class="select-styled"
+    [ngClass]="{ active: pickerActive, empty: !pickerActive }"
+    (click)="pickerActive = !pickerActive"
+    href="javascript:void(0)"
+  >
+    {{ timeForm.get("hour")?.value }} : {{ timeForm.get("minutes")?.value }}
+  </a>
+  <div id="time-picker" [formGroup]="timeForm" *ngIf="pickerActive">
+    <!-- <input
+    type="time"
+    id="appt"
+    name="appt"
+    value="08:56"
+    (click)="timepickerOpen()"
+  /> -->
+
+    <div class="hour-picker">
+      <button
+        tabindex="-1"
+        type="button"
+        class="btn btn-point"
+        (click)="subtractHour()"
+      >
+        <span class="chevron ngb-tp-chevron"></span
+        ><span class="visually-hidden"><i class="ri-subtract-line"></i></span>
+      </button>
+      <input
+        type="text"
+        maxlength="2"
+        inputmode="numeric"
+        placeholder="HH"
+        aria-label="Hours"
+        formControlName="hour"
+        (input)="onHourChange($event)"
+      />
+      <button
+        tabindex="-1"
+        type="button"
+        class="btn btn-point"
+        (click)="plusHour()"
+      >
+        <span class="chevron ngb-tp-chevron bottom"></span
+        ><span class="visually-hidden"><i class="ri-add-line"></i></span>
+      </button>
+    </div>
+    <div class="middle-picker">
+      <span> : </span>
+    </div>
+    <div class="minute-picker">
+      <button
+        tabindex="-1"
+        type="button"
+        class="btn btn-point"
+        (click)="subtractMinutes()"
+      >
+        <i class="ri-subtract-line"></i>
+      </button>
+      <input
+        type="text"
+        maxlength="2"
+        inputmode="numeric"
+        placeholder="MM"
+        aria-label="Minutes"
+        formControlName="minutes"
+        (input)="onMinutesChange($event)"
+      />
+      <button
+        tabindex="-1"
+        type="button"
+        class="btn btn-point"
+        (click)="plusMinutes()"
+      >
+        <i class="ri-add-line"></i>
+      </button>
+    </div>
+  </div>
+</div>

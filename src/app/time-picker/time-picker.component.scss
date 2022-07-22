@@ -1,0 +1,116 @@
+@import "../../../../../../styles/common/_media.scss";
+@import "../../../../../../styles/common/_mixin.scss";
+@import "../../../../../../styles/common/_color.scss";
+.select-box {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  line-height: 1px;
+  vertical-align: middle;
+
+  .select-styled {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    border: 1px solid $input-line;
+    padding: 10px 11px 10px 10px;
+    border-radius: 6px;
+    line-height: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    background: #fff;
+    @include transition(all .2s); 
+
+    &.empty {
+      color: $gray-text;
+    }
+  
+    &:after {
+      content: "\EA4E";
+      position: absolute;
+      font-family: "remixicon";
+      top: 50%;
+      transform: translateY(-50%);
+      right: 5px;
+      color: $gray-text;
+      @include transition(all .2s);
+    }
+  
+    &:hover {
+      color: $point-color;
+      border: 1px solid $point-color;
+      background-color: #fff;
+
+      &:after {
+        color: $point-color;
+        @include transition(all .2s);
+      }
+    }
+  
+    &.active {
+      color: $point-color;
+      border: 1px solid $point-color;
+      background-color: $point-color-light;
+
+      &:after {
+        color: $point-color;
+        transform: translateY(-50%) rotate3d(0,0,1,180deg);
+        @include transition(all .2s);
+      }
+  
+      #time-picker {
+        display: block;
+      }
+    }
+  }
+  #time-picker {
+    display: flex;
+    position: absolute;
+    z-index: 9;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 12px 20px -4px rgba(0,0,0,0.1);
+    padding: 10px;
+    border-radius: 6px;
+        
+    .middle-picker {
+      
+      span {
+          top: 50%;
+      }
+      margin: 0 10px 0 0;
+    }
+    .hour-picker {
+      width: calc(100% / 2);
+      margin: 0 10px 0 0;
+      display: flex;
+
+      button {
+          display: inline-block;
+          width: 40%;
+          padding: 4px 0;
+          font-weight: bold;
+          text-align: center;
+          margin: 5px 2px;
+      }
+    }
+    .minute-picker {
+      width: calc(100% / 2);
+      display: flex;
+
+      button {
+        display: inline-block;
+        width: 40%;
+        padding: 4px 0;
+        font-weight: bold;
+        text-align: center;
+        margin: 5px 2px;
+      }
+    }
+  }
+}
