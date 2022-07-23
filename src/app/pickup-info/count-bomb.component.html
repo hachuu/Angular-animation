@@ -1,0 +1,7 @@
+<div>
+  <ng-container *ngFor="let data of arr; let idx = index">
+    {{ this.secArr[idx] }}
+  </ng-container>
+</div>
+<br />
+<input type="number" (keyup)="keyupmethod($event)" />

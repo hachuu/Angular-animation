@@ -17,10 +17,10 @@ import { ReactiveFormModule } from './reactive-form/reactive-form.module';
 import { WebsocketModule } from './websocket/websocket.module';
 
 @NgModule({
-  imports:      [ 
+  imports: [
     AppRoutingModule,
-    BrowserModule, 
-    BrowserAnimationsModule, 
+    BrowserModule,
+    BrowserAnimationsModule,
     AnimationBuilderToggleModule,
     SlideModule,
     TabSlideModule,
@@ -30,9 +30,9 @@ import { WebsocketModule } from './websocket/websocket.module';
     ReactiveFormModule,
     WebsocketModule,
   ],
-  declarations: [ AppComponent, ModalDirective ],
-  bootstrap:    [ AppComponent ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  declarations: [AppComponent, ModalDirective],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   // exports: [environment.production ? BrowserAnimationsModule : NoopAnimationsModule,]
 })
-export class AppModule { }
+export class AppModule {}
