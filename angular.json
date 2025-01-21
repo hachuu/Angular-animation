@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "animation:build:production"
+              "buildTarget": "animation:build:production"
             },
             "development": {
-              "browserTarget": "animation:build:development"
+              "buildTarget": "animation:build:development"
             }
           },
           "options": {
@@ -112,5 +112,8 @@
       }
     }
   },
-  "defaultProject": "animation"
+  "defaultProject": "animation",
+  "cli": {
+    "analytics": false
+  }
 }
