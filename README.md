@@ -1,3 +1,7 @@
+# 25/01 Update
+- angular12 -> angular19 변경
+- 빌드 에러 ngModule standalone 이슈로 각 모듈에 선언된 component standalone : false값 추가함
+
 [jquery로 margin-left 주기]](https://kamang-it.tistory.com/entry/css%EC%A7%80%EC%98%A5%EC%97%90%EC%84%9C-%ED%83%88%EC%B6%9C%ED%95%98%EC%9E%905-%EC%97%98%EB%A6%AC%EB%A8%BC%ED%8A%B8%EB%A5%BC-%EB%93%9C%EB%9E%98%EA%B7%B8-%EC%95%A4-%EB%93%9C%EB%9E%8Ddrag-and-drop%EC%9C%BC%EB%A1%9C-%EC%9E%90%EC%9C%A0%EB%A1%AD%EA%B2%8C-%EC%98%AE%EA%B8%B4%EB%8B%A4%EA%B3%A0)
 
 [ag grid로 excel image 넣기](https://ag-grid.com/angular-data-grid/excel-export-images/)
