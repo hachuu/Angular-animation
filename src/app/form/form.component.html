@@ -21,7 +21,7 @@
           <ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="item.isOpen">
             <ul class="overlay-list">
               <li>{{item.title}}</li>
-              <li>value : <input [(ngModel)]="item.value || itemText" (keyup.enter)="confirmValue(item)"></li>
+              <li>value : <input [formControl]="userName" (keyup.enter)="confirmValue(item)"></li>
               <li><button (click)="confirmValue(item)">확인</button></li>
             </ul>
           </ng-template>

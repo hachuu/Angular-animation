@@ -12,7 +12,7 @@ import { MatInputModule } from '@angular/material/input';
   declarations: [ReactiveFormComponent],
   imports: [
     CommonModule,
-    FormModule,
+    // FormModule,
     ReactiveFormsModule,
     MatIconModule,
     MatSelectModule,

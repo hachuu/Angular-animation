@@ -3,7 +3,8 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-tab-slide',
   templateUrl: './tab-slide.component.html',
-  styleUrls: ['./tab-slide.component.scss']
+  styleUrls: ['./tab-slide.component.scss'],
+  standalone: false
 })
 export class TabSlideComponent implements OnInit {
 

@@ -15,7 +15,8 @@ export interface PasteArr {
 @Component({
   selector: 'app-excel',
   templateUrl: './excel.component.html',
-  styleUrls: ['./excel.component.scss']
+  styleUrls: ['./excel.component.scss'],
+  standalone: false,
 })
 
 export class ExcelComponent implements OnInit {

@@ -18,7 +18,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
         animate(200, style({ width: '*' }))
       ])
     ])
-  ]
+  ],
+  standalone: false,
 })
 export class AnimationBuilderComponent implements OnInit {
 

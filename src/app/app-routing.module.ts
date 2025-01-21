@@ -15,7 +15,7 @@ const routes: Routes = [
   ...ExcelRoutes,
   ...PrintRoutes,
   ...ReactiveFormRoute,
-  { path: 'googleMap', loadChildren: () => import('./agmap/agmap.module').then(m => m.AgmapModule) },
+  // { path: 'googleMap', loadChildren: () => import('./agmap/agmap.module').then(m => m.AgmapModule) },
   { path: 'websocket', loadChildren: () => import('./websocket/websocket.module').then(m => m.WebsocketModule) },
 ];
 

@@ -1,7 +1,8 @@
 import { Directive, EventEmitter, HostListener, Input, Output } from '@angular/core';
 
 @Directive({
-  selector: '[appPasteCell]'
+  selector: '[appPasteCell]',
+  standalone: false,
 })
 export class PasteCellDirective {
 

@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  styleUrls: ['./form.component.scss'],
+  standalone: false,
 })
 export class FormComponent implements OnInit {
   ngOnInit(): void {
   }
+
+  userName = new FormControl('');
 
   panelOpenState = false;
   itemText: string = '';

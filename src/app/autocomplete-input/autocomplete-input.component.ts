@@ -4,7 +4,8 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'autocomplete-input',
   templateUrl: './autocomplete-input.component.html',
-  styleUrls: ['./autocomplete-input.component.scss']
+  styleUrls: ['./autocomplete-input.component.scss'],
+  standalone: false,
 })
 export class AutocompleteInputComponent implements OnInit {
 

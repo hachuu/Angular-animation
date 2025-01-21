@@ -1,7 +1,8 @@
 import { Directive, EventEmitter, HostListener, Input, Output, SimpleChanges, OnChanges } from '@angular/core';
 
 @Directive({
-  selector: '[modal]'
+  selector: '[modal]',
+  standalone: false,
 })
 export class ModalDirective implements OnChanges {
 

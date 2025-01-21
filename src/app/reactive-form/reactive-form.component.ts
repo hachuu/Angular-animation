@@ -5,7 +5,7 @@ import { FormBuilder, FormArray, Validators } from '@angular/forms';
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
   styleUrls: ['./reactive-form.component.scss'],
-
+  standalone: false,
 })
 export class ReactiveFormComponent implements OnInit {
 

@@ -5,6 +5,7 @@ import { SharemoduleModule } from '../sharemodule/sharemodule.module';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
     SharemoduleModule,
     MatExpansionModule,
     OverlayModule,
-    ClipboardModule
+    ClipboardModule,
+    FormsModule
   ],
   // providers: [{provide: OverlayContainer}],
 })

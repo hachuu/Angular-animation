@@ -34,6 +34,7 @@ const right = [
       transition(':decrement', left),
     ]),
   ],
+  standalone: false,
 })
 export class SlideComponent implements OnInit {
   counter: number = 0;

@@ -33,7 +33,8 @@ const right = [
       transition(':increment', right),
       transition(':decrement', left),
     ]),
-  ]
+  ],
+  standalone: false,
 })
 export class ImageSliderComponent implements OnInit {
   counter: number = 0;
